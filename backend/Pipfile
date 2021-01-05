@@ -16,6 +16,7 @@ flask-cors = "*"
 flask-login = "*"
 flask-wtf = "*"
 pycodestyle = "*"
+werkzeug = "*"
 
 [dev-packages]
 psycopg2 = "*"
