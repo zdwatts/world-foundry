@@ -5,11 +5,11 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 
 from .config import Configuration
-from .models import db
+from .models import db, User
 
 app = Flask(__name__)
 app.config.from_object(Configuration)
 db.init_app(app)
-Migrate(app, db)
+migrate = Migrate(app, db)
 
 CORS(app)
