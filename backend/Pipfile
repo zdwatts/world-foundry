@@ -14,6 +14,8 @@ flask-migrate = "*"
 gunicorn = "*"
 flask-cors = "*"
 flask-login = "*"
+flask-wtf = "*"
+pycodestyle = "*"
 
 [dev-packages]
 psycopg2 = "*"
