@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+sqlalchemy = "*"
+flask-sqlalchemy = "*"
+python-dotenv = "*"
+wtforms = "*"
+alembic = "*"
+flask-migrate = "*"
+gunicorn = "*"
+flask-cors = "*"
+flask-login = "*"
+
+[dev-packages]
+psycopg2 = "*"
+psycopg2-binary = "*"
+
+[requires]
+python_version = "3.8"
