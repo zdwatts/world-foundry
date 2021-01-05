@@ -17,6 +17,7 @@ flask-login = "*"
 flask-wtf = "*"
 pycodestyle = "*"
 werkzeug = "*"
+click = "*"
 
 [dev-packages]
 psycopg2 = "*"
