@@ -48,6 +48,15 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 						onChange={updateEmail}
 					/>
 				</div>
+				<div>
+					<label>Password</label>
+					<input
+						name="password"
+						type="password"
+						value={password}
+						onChange={updatePassword}
+					/>
+				</div>
 			</form>
 		</div>
 	);
