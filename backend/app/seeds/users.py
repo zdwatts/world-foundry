@@ -4,13 +4,13 @@ from app.models import db, User
 
 def seed_users():
 
-	demo = User(username="Demo", email="demo@aa.io", password="password")
+    demo = User(username="Demo", email="demo@aa.io", password="password")
 
-	db.session.add(demo)
+    db.session.add(demo)
 
-	db.session.commit()
+    db.session.commit()
 
 
 def undo_users():
-	db.session.execute("TRUNCATE users;")
-	db.session.commit()
+    db.session.execute("TRUNCATE users;")
+    db.session.commit()
