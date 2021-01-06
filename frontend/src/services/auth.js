@@ -34,3 +34,12 @@ export const demo = async (email = "demo@aa.io", password = "password") => {
 	});
 	return await response.json();
 };
+
+export const logout = async () => {
+	const response = await fetch("/api/auth/logout", {
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+	return await response.json();
+};
