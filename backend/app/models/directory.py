@@ -1,4 +1,5 @@
 from .db import db
+from sqlalchemy.orm import relationship, backref
 
 
 class Directory(db.Model):
@@ -7,5 +8,9 @@ class Directory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     parent_id = db.Column(db.Integer, db.ForeignKey("directories.id"),
                           nullable=True)
-    userId = db.Column(db.Integer)
+    user_id = db.Column(db.Integer)
     name = db.Column(db.String(255))
+
+    # parent = relationship("Directory", remote_side=[id])
+    children = relationship("Directory", backref=backref("parent",
+                            remote_side=[id]))
