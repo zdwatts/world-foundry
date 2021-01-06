@@ -9,6 +9,8 @@ from .config import Configuration
 from .models import db, User, Directory, Document
 from .seeds import seed_commands
 from .api.auth_routes import auth_routes
+from .api.directory_routes import directory_routes
+from .api.document_routes import document_routes
 
 
 app = Flask(__name__)
@@ -28,6 +30,8 @@ app.cli.add_command(seed_commands)
 
 app.config.from_object(Configuration)
 app.register_blueprint(auth_routes, url_prefix="/api/auth")
+app.register_blueprint(directory_routes, url_prefix="/api/directories")
+app.register_blueprint(document_routes, url_prefix="/api/documents")
 db.init_app(app)
 migrate = Migrate(app, db)
 

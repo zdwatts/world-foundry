@@ -2,10 +2,10 @@ from flask import Blueprint
 from app.models import Directory
 
 
-directory_routes = Blueprint("directory", __name__)
+directory_routes = Blueprint("directories", __name__)
 
 
-@directory_routes.route("/directory")
+@directory_routes.route("/")
 def directory():
     directory = Directory.query.filter_by(id=1).first()
     print("1:", directory)
