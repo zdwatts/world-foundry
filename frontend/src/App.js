@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { authenticate } from "./services/auth";
 
+import LoginForm from "./components/auth/LoginForm";
+
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
 	const [loaded, setLoaded] = useState(false);
@@ -19,6 +21,19 @@ function App() {
 	if (!loaded) {
 		return null;
 	}
+
+	return (
+		<BrowserRouter>
+			<Switch>
+				<Route path="/login" exact={true}>
+					<LoginForm
+						setAuthenticated={setAuthenticated}
+						authenticated={authenticated}
+					/>
+				</Route>
+			</Switch>
+		</BrowserRouter>
+	);
 }
 
 export default App;
