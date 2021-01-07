@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../services/auth";
+import "../styles/SignUpForm.css";
 
 const SignUpForm = ({ authenticated, setAuthenticated }) => {
 	const [username, setUsername] = useState("");
@@ -42,6 +43,8 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
 		<div className="signup-form-wrapper">
 			<form onSubmit={onSignUp} className="signup-form">
 				<div className="input-wrapper">
+					<h1 className="form-title">Writer's Workshop</h1>
+					<h3 className="form-subtitle">Sign Up</h3>
 					<label>Username</label>
 					<input
 						className="input"
