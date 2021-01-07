@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { authenticate } from "./services/auth";
 
 import LoginForm from "./components/auth/LoginForm";
+import SignUpForm from "./components/auth/SignUpForm";
 import LandingPage from "./components/LandingPage";
 
 function App() {
@@ -32,7 +33,13 @@ function App() {
 						authenticated={authenticated}
 					/>
 				</Route>
-				<Route path="/">
+				<Route path="/signup">
+					<SignUpForm
+						setAuthenticated={setAuthenticated}
+						authenticated={authenticated}
+					/>
+				</Route>
+				<Route exact path="/">
 					<LandingPage />
 				</Route>
 			</Switch>
