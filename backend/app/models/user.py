@@ -13,7 +13,7 @@ class User(db.Model, UserMixin):
 
     @property
     def password(self):
-        return self._hashed_password
+        return self.hashed_password
 
     @password.setter
     def password(self, password):
