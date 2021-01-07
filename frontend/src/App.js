@@ -5,6 +5,7 @@ import { authenticate } from "./services/auth";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import LandingPage from "./components/LandingPage";
+import NavBar from "./components/NavBar";
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -26,6 +27,11 @@ function App() {
 
 	return (
 		<BrowserRouter>
+			<NavBar
+				setAuthenticated={setAuthenticated}
+				authenticated={authenticated}
+				authenticate={authenticate}
+			/>
 			<Switch>
 				<Route path="/login" exact={true}>
 					<LoginForm
@@ -40,7 +46,7 @@ function App() {
 					/>
 				</Route>
 				<Route exact path="/">
-					<LandingPage />
+					<LandingPage authenticated={authenticated} />
 				</Route>
 			</Switch>
 		</BrowserRouter>
