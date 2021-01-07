@@ -9,8 +9,6 @@ function App() {
 	const [authenticated, setAuthenticated] = useState(false);
 	const [loaded, setLoaded] = useState(false);
 
-	console.log("App component");
-
 	useEffect(() => {
 		(async () => {
 			const user = await authenticate();
