@@ -67,7 +67,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 				</button>
 				<p className="cta">
 					Not a member?{" "}
-					<a className="cta-link" href="signup">
+					<a className="cta-link" href="/signup">
 						Register here
 					</a>
 				</p>
