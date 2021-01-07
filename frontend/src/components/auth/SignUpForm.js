@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../services/auth";
+import "../styles/SignUpForm.css";
 
 const SignUpForm = ({ authenticated, setAuthenticated }) => {
 	const [username, setUsername] = useState("");
@@ -39,45 +40,63 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
 	}
 
 	return (
-		<div>
-			<form onSubmit={onSignUp}>
-				<div>
+		<div className="signup-form-wrapper">
+			<form onSubmit={onSignUp} className="signup-form">
+				<div className="input-wrapper">
+					<h1 className="form-title">Writer's Workshop</h1>
+					<h3 className="form-subtitle">Sign Up</h3>
 					<label>Username</label>
 					<input
+						className="input"
 						type="text"
 						name="username"
 						onChange={updateUsername}
 						value={username}
+						required={true}
 					/>
 				</div>
-				<div>
+				<div className="input-wrapper">
 					<label>Email</label>
 					<input
+						className="input"
+						required={true}
 						type="text"
 						name="Email"
 						onChange={updateEmail}
 						value={email}
 					/>
 				</div>
-				<div>
+				<div className="input-wrapper">
 					<label>Password</label>
 					<input
+						className="input"
+						required={true}
 						type="password"
 						name="password"
 						onChange={updatePassword}
 						value={password}
 					/>
 				</div>
-				<div>
+				<div className="input-wrapper">
 					<label>Confirm Password</label>
 					<input
+						className="input"
+						required={true}
 						type="password"
 						name="confirm-password"
 						onChange={updateConfirmPassword}
 						value={confirmPassword}
 					/>
 				</div>
-				<button type="submit">Sign Up</button>
+				<button type="submit" className="signup-button">
+					Sign Up
+				</button>
+				<p className="cta">
+					Already registered?{" "}
+					<a className="cta-link" href="/login">
+						Log In
+					</a>
+				</p>
 			</form>
 		</div>
 	);

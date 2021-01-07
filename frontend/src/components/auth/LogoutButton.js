@@ -1,6 +1,7 @@
 import React from "react";
 import { logout } from "../../services/auth";
 import { useHistory } from "react-router-dom";
+import "../styles/NavBar.css";
 
 const LogoutButton = ({ setAuthenticated, authenticated }) => {
 	const history = useHistory();
@@ -13,7 +14,9 @@ const LogoutButton = ({ setAuthenticated, authenticated }) => {
 	};
 
 	return authenticated ? (
-		<button onClick={onLogout}>{authenticated ? "Logout" : "Login"}</button>
+		<button className="buttons" onClick={onLogout}>
+			{authenticated ? "Logout" : "Login"}
+		</button>
 	) : (
 		""
 	);

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { login } from "../../services/auth";
+import "../styles/LoginForm.css";
 
 const LoginForm = ({ authenticated, setAuthenticated }) => {
 	const [errors, setErrors] = useState([]);
@@ -30,34 +31,46 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 	}
 
 	return (
-		<div>
-			<form onSubmit={onLogin}>
-				<div>
+		<div className="login-form-wrapper">
+			<form onSubmit={onLogin} className="login-form">
+				<div className="errors-wrapper">
 					{errors.map((error) => (
-						<div>
-							<p>{error}</p>
+						<div className="errors">
+							<p className="error">{error}</p>
 						</div>
 					))}
 				</div>
-				<div>
+				<div className="input-wrapper">
+					<h1 className="form-title">Writer's Workshop</h1>
+					<h3 className="form-subtitle">Log In</h3>
 					<label>Email</label>
 					<input
+						className="input"
 						name="email"
 						type="text"
 						value={email}
 						onChange={updateEmail}
 					/>
 				</div>
-				<div>
+				<div className="input-wrapper">
 					<label>Password</label>
 					<input
+						className="input"
 						name="password"
 						type="password"
 						value={password}
 						onChange={updatePassword}
 					/>
 				</div>
-				<button type="submit">Login</button>
+				<button type="submit" className="login-button">
+					Login
+				</button>
+				<p className="cta">
+					Not a member?{" "}
+					<a className="cta-link" href="/signup">
+						Register here
+					</a>
+				</p>
 			</form>
 		</div>
 	);
