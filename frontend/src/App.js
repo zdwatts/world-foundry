@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { authenticate } from "./services/auth";
 
 import LoginForm from "./components/auth/LoginForm";
+import LandingPage from "./components/LandingPage";
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -30,6 +31,9 @@ function App() {
 						setAuthenticated={setAuthenticated}
 						authenticated={authenticated}
 					/>
+				</Route>
+				<Route path="/">
+					<LandingPage />
 				</Route>
 			</Switch>
 		</BrowserRouter>
