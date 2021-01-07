@@ -15,4 +15,11 @@ def documents():
 def new_document():
     title = request.json["title"]
     body = request.json["body"]
-    directory_id = Document.query.filter_by()
+    directory_id = Document.query.filter_by(directory_id)
+
+    new_document = Document(title, body, directory_id)
+
+    db.session.add(new_document)
+    db.session.commit()
+
+    return {"id": new_document.id}
