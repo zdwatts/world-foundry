@@ -37,4 +37,48 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
 	if (authenticated) {
 		return <Redirect to="/" />;
 	}
+
+	return (
+		<div>
+			<form onSubmit={onSignUp}>
+				<div>
+					<label>Username</label>
+					<input
+						type="text"
+						name="username"
+						onChange={updateUsername}
+						value={username}
+					/>
+				</div>
+				<div>
+					<label>Email</label>
+					<input
+						type="text"
+						name="Email"
+						onChange={updateEmail}
+						value={email}
+					/>
+				</div>
+				<div>
+					<label>Password</label>
+					<input
+						type="password"
+						name="password"
+						onChange={updatePassword}
+						value={password}
+					/>
+				</div>
+				<div>
+					<label>Confirm Password</label>
+					<input
+						type="password"
+						name="confirm-password"
+						onChange={updateConfirmPassword}
+						value={confirmPassword}
+					/>
+				</div>
+				<button type="submit">Sign Up</button>
+			</form>
+		</div>
+	);
 };
