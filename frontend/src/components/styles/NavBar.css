@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+
+.logo-text {
+	font-size: 2rem;
+	margin: 10px;
+	align-items: center;
+	align-self: center;
+}
+
+.nav-links {
+	list-style: none;
+	display: flex;
+	align-items: center;
+	align-self: center;
+	justify-content: space-between;
+	padding: 0;
+}
+
+li {
+	margin: 10px;
+}
