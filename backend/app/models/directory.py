@@ -27,5 +27,5 @@ class Directory(db.Model):
             "parent_id": self.parent_id,
             "user_id": self.user_id,
             "name": self.name,
-            "children": self.children
+            "children": [child.to_dict() for child in self.children]
         }
