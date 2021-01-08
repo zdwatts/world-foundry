@@ -1,16 +1,29 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Directories = () => {
 	const [directories, setDirectories] = useState([]);
 
 	useEffect(() => {
 		(async () => {
-			const data = await fetch("/api/directories/");
-			console.log(data);
+			const res = await axios.get("/api/directories/");
+			const directoriesList = res.data.directories;
+			setDirectories(directoriesList);
 		})();
 	});
 
-	return <h1>Directories</h1>;
+	return (
+		<div>
+			<h1>Directories</h1>
+			<div>
+				<ul>
+					{directories.map((directory) => {
+						return <li key={directory.id}>{directory.name}</li>;
+					})}
+				</ul>
+			</div>
+		</div>
+	);
 };
 
 export default Directories;
