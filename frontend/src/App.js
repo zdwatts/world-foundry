@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import LandingPage from "./components/LandingPage";
 import NavBar from "./components/NavBar";
 import DocumentEditor from "./components/DocumentEditor";
+import Directories from "./components/Directories";
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -52,6 +53,9 @@ function App() {
 				</Route>
 				<ProtectedRoute exact path="/documents" authenticated={authenticated}>
 					<DocumentEditor />
+				</ProtectedRoute>
+				<ProtectedRoute exact path="/directories" authenticated={authenticated}>
+					<Directories />
 				</ProtectedRoute>
 			</Switch>
 		</BrowserRouter>
