@@ -8,9 +8,10 @@ const Directories = () => {
 		(async () => {
 			const res = await axios.get("/api/directories/");
 			const directoriesList = res.data.directories;
+			console.log(directoriesList);
 			setDirectories(directoriesList);
 		})();
-	});
+	}, []);
 
 	return (
 		<div>
