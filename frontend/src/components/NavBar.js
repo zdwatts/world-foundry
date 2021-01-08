@@ -27,7 +27,9 @@ const NavBar = ({ setAuthenticated, authenticated, authenticate }) => {
 						</NavLink>
 					</li>
 					{authenticated ? (
-						""
+						<NavLink to="/documents" activeClassName="active">
+							Write
+						</NavLink>
 					) : (
 						<li>
 							<NavLink to="/login" activeClassName="active">

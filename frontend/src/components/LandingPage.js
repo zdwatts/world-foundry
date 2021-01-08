@@ -13,8 +13,6 @@ const LandingPage = ({ setAuthenticated, authenticated }) => {
 		})();
 	});
 
-	console.log(currentUser);
-
 	const greeting = () => {
 		let greeting;
 		if (authenticated) {

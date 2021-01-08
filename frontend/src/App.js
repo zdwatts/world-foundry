@@ -4,8 +4,10 @@ import { authenticate } from "./services/auth";
 
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 import LandingPage from "./components/LandingPage";
 import NavBar from "./components/NavBar";
+import DocumentEditor from "./components/DocumentEditor";
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -48,6 +50,9 @@ function App() {
 				<Route exact path="/">
 					<LandingPage authenticated={authenticated} />
 				</Route>
+				<ProtectedRoute exact path="/documents" authenticated={authenticated}>
+					<DocumentEditor />
+				</ProtectedRoute>
 			</Switch>
 		</BrowserRouter>
 	);
