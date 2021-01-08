@@ -41,14 +41,17 @@ const Directories = () => {
 	);
 
 	return (
-		<TreeView
-			className={classes.root}
-			defaultCollapseIcon={<ExpandMoreIcon />}
-			defaultExpanded={["root"]}
-			defaultExpandIcon={<ChevronRightIcon />}
-		>
-			{renderTree(directories)}
-		</TreeView>
+		<div>
+			<h1>Directories</h1>
+			<TreeView
+				className={classes.root}
+				defaultCollapseIcon={<ExpandMoreIcon />}
+				defaultExpanded={["root"]}
+				defaultExpandIcon={<ChevronRightIcon />}
+			>
+				{renderTree(directories)}
+			</TreeView>
+		</div>
 	);
 };
 
