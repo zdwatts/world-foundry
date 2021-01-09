@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { authenticate } from "../services/auth";
+import "./styles/LandingPage.css";
 
-const LandingPage = ({ setAuthenticated, authenticated }) => {
+const LandingPage = ({ authenticated }) => {
 	const [currentUser, setCurrentUser] = useState("");
 
 	useEffect(() => {
 		(async () => {
 			const response = await authenticate();
 			const user = response.username;
-			console.log(user);
 			setCurrentUser(user);
 		})();
 	});
@@ -25,7 +25,7 @@ const LandingPage = ({ setAuthenticated, authenticated }) => {
 
 	return (
 		<>
-			<h1>Greetings, {greeting()}.</h1>
+			<h1 className="greeting">Greetings, {greeting()}.</h1>
 		</>
 	);
 };

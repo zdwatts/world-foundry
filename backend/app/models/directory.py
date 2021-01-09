@@ -14,3 +14,18 @@ class Directory(db.Model):
     # parent = relationship("Directory", remote_side=[id])
     children = relationship("Directory", backref=backref("parent",
                             remote_side=[id]))
+
+    def __init__(self, parent_id, user_id, name, children):
+        self.parent_id = parent_id
+        self.user_id = user_id
+        self.name = name
+        self.children = children
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "parent_id": self.parent_id,
+            "user_id": self.user_id,
+            "name": self.name,
+            "children": [child.to_dict() for child in self.children]
+        }

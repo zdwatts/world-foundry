@@ -10,6 +10,11 @@ class Document(db.Model):
     directory_id = db.Column(db.Integer, db.ForeignKey("directories.id"),
                              nullable=False)
 
+    def __init__(self, title, body, directory_id):
+        self.title = title
+        self.body = body
+        self.directory_id = directory_id
+
     def to_dict(self):
         return {
             "id": self.id,
