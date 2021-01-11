@@ -8,18 +8,14 @@ class Directory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     parent_id = db.Column(db.Integer, db.ForeignKey("directories.id"),
                           nullable=True)
-    user_id = db.Column(db.Integer)
-    name = db.Column(db.String(255))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    name = db.Column(db.String(255), nullable=False)
 
-    # parent = relationship("Directory", remote_side=[id])
-    children = relationship("Directory", backref=backref("parent",
-                            remote_side=[id]))
-
-    def __init__(self, parent_id, user_id, name, children):
-        self.parent_id = parent_id
-        self.user_id = user_id
-        self.name = name
-        self.children = children
+    parent = relationship("Directory", remote_side=[id],
+                          back_populates="children")
+    children = relationship("Directory", back_populates="parent")
+    # children = relationship("Directory", backref=backref("parent",
+    #                         remote_side=[id]))
 
     def to_dict(self):
         return {
