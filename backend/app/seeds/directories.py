@@ -1,17 +1,16 @@
-# from app.models import db, Directory, User
+from app.models import db, Directory, User
 
 
 def seed_directories():
 
-    root_directory = Directory.query.filter_by(user_id=1).all()
-    print("ROOT:", root_directory)
-
-    parent = Directory(user_id=1,
-                       name="Demo Parent")
+    root = Directory(user_id=1,
+                     name="Demo Root")
 
     child = Directory(user_id=1, name="Demo Child")
-    child.parent = parent
-    db.session.add(parent)
+
+    child.parent = root
+
+    db.session.add(root)
     db.session.add(child)
     db.session.commit()
 
