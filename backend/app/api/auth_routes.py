@@ -68,8 +68,9 @@ def sign_up():
             email=form.data["email"],
             password=form.data["password"]
         )
+        user_id = user.id
         root_directory = Directory(
-            user_id=current_user.id,
+            user_id=user_id,
             name="Your Directories"
         )
         db.session.add(user)
