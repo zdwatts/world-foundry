@@ -12,7 +12,7 @@ const Directories = () => {
 	useEffect(() => {
 		(async () => {
 			const res = await axios.get("/api/directories/");
-			console.log(res.data.root);
+			console.log(res.data.root.children);
 			const rootDirectory = res.data.root;
 			setRoot(rootDirectory);
 		})();

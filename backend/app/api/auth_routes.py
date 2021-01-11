@@ -70,7 +70,7 @@ def sign_up():
         )
         root_directory = Directory(
             user_id=user.id,
-            name="Root"
+            name="Your Directories"
         )
         db.session.add(user)
         db.session.add(root_directory)
