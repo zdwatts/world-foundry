@@ -12,7 +12,7 @@ class Directory(db.Model):
     name = db.Column(db.String(255), nullable=False)
 
     parent = relationship("Directory", remote_side=[id],
-                           back_populates="children")
+                          back_populates="children")
     children = relationship("Directory", back_populates="parent")
     # children = relationship("Directory", backref=backref("parent",
     #                         remote_side=[id]))
