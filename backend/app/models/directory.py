@@ -8,8 +8,8 @@ class Directory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     parent_id = db.Column(db.Integer, db.ForeignKey("directories.id"),
                           nullable=True)
-    user_id = db.Column(db.Integer)
-    name = db.Column(db.String(255))
+    user_id = db.Column(db.Integer, nullable=False)
+    name = db.Column(db.String(255), nullable=False)
 
     # parent = relationship("Directory", remote_side=[id])
     children = relationship("Directory", backref=backref("parent",

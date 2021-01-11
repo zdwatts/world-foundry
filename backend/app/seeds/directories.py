@@ -1,11 +1,15 @@
-from app.models import db, Directory
+from app.models import db, Directory, User
 
 
 def seed_directories():
 
-    parent = Directory(id=1, user_id=1, name="Demo Parent")
+    root_directory = Directory.query.filter_by(user_id=1).all()
+    print("ROOT:", root_directory)
 
-    child = Directory(id=2, user_id=1, name="Demo Child")
+    parent = Directory(user_id=1,
+                       name="Demo Parent")
+
+    child = Directory(user_id=1, name="Demo Child")
     child.parent = parent
     db.session.add(parent)
     db.session.add(child)

@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import User, db
+from app.models import User, Directory, db
 from app.forms import LoginForm, SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
 
@@ -68,7 +68,12 @@ def sign_up():
             email=form.data["email"],
             password=form.data["password"]
         )
+        root_directory = Directory(
+            user_id=user.id,
+            name="Root"
+        )
         db.session.add(user)
+        db.session.add(root_directory)
         db.session.commit()
         login_user(user)
         return user.to_dict()

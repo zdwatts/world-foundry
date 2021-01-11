@@ -9,5 +9,5 @@ directory_routes = Blueprint("directories", __name__)
 @directory_routes.route("/")
 @login_required
 def directory():
-    directories = Directory.query.filter_by(user_id=current_user.id).all()
+    root_directory = Directory.query.filter_by(user_id=current_user.id)
     return {"directories": [directory.to_dict() for directory in directories]}
