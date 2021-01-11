@@ -7,16 +7,18 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import TreeItem from "@material-ui/lab/TreeItem";
 
 const Directories = () => {
-	const [directories, setDirectories] = useState([]);
+	const [root, setRoot] = useState([]);
 
 	useEffect(() => {
 		(async () => {
 			const res = await axios.get("/api/directories/");
-			const directoriesList = res.data.directories;
-			console.log(directoriesList);
-			setDirectories(directoriesList);
+			console.log(res.data.root);
+			const rootDirectory = res.data.root;
+			setRoot(rootDirectory);
 		})();
 	}, []);
+
+	console.log(root);
 
 	const useStyles = makeStyles({
 		root: {
@@ -28,14 +30,10 @@ const Directories = () => {
 
 	const classes = useStyles();
 
-	const renderTree = (directories) => (
-		<TreeItem
-			key={directories.id}
-			nodeId={directories.id}
-			label={directories.name}
-		>
-			{Array.isArray(directories.children)
-				? directories.children.map((directory) => renderTree(directory))
+	const renderTree = (root) => (
+		<TreeItem key={root.id} nodeId={root.id} label={root.name}>
+			{Array.isArray(root.children)
+				? root.children.map((directory) => renderTree(directory))
 				: null}
 		</TreeItem>
 	);
@@ -49,7 +47,7 @@ const Directories = () => {
 				defaultExpanded={["root"]}
 				defaultExpandIcon={<ChevronRightIcon />}
 			>
-				{renderTree(directories)}
+				{renderTree(root)}
 			</TreeView>
 		</div>
 	);
