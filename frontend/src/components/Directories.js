@@ -10,6 +10,8 @@ const Directories = () => {
 	const [root, setRoot] = useState([]);
 	const [showForm, setShowForm] = useState(false);
 	const [directories, setDirectories] = useState([]);
+	const [parentDirectory, setParentDirectory] = useState("");
+	const [directoryName, setDirectoryName] = useState("")
 
 	useEffect(() => {
 		(async () => {
@@ -36,7 +38,13 @@ const Directories = () => {
 		}
 	};
 
-	const addDirectory = async (e) => {};
+	const
+
+	const addDirectory = async (e) => {
+		e.preventDefault();
+
+		const response = await axios.post("/api/directories/");
+	};
 
 	const useStyles = makeStyles({
 		root: {
