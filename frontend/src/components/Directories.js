@@ -9,24 +9,34 @@ import TreeItem from "@material-ui/lab/TreeItem";
 const Directories = () => {
 	const [root, setRoot] = useState([]);
 	const [showForm, setShowForm] = useState(false);
+	const [directories, setDirectories] = useState([]);
 
 	useEffect(() => {
 		(async () => {
 			const res = await axios.get("/api/directories/");
-			console.log(res.data.root.children);
 			const rootDirectory = res.data.root;
 			setRoot(rootDirectory);
 		})();
 	}, []);
 
+	useEffect(() => {
+		(async () => {
+			const res = await axios.get("/api/directories/all");
+			const directoriesArray = res.data.directories;
+			setDirectories(directoriesArray);
+		})();
+	}, []);
+
 	const showFormButton = (e) => {
 		e.preventDefault();
-		setShowForm(true);
+		if (showForm === false) {
+			setShowForm(true);
+		} else {
+			setShowForm(false);
+		}
 	};
 
 	const addDirectory = async (e) => {};
-
-	console.log(root);
 
 	const useStyles = makeStyles({
 		root: {
@@ -53,11 +63,18 @@ const Directories = () => {
 			</div>
 			<div>
 				<button type="submit" onClick={showFormButton}>
-					Add
-					{showForm ? (
-						<form onSubmit={addDirectory} className="new-directory-form"></form>
-					) : null}
+					Create New Directory
 				</button>
+				{showForm ? (
+					<form onSubmit={addDirectory} className="new-directory-form">
+						<label>Parent Directory: </label>
+						<select name="parent-directory">
+							{directories.map((directory) => (
+								<option>{directory.name}</option>
+							))}
+						</select>
+					</form>
+				) : null}
 			</div>
 			<div>
 				<TreeView

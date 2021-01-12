@@ -14,6 +14,13 @@ def root_directory():
     return {"root": root_directory.to_dict()}
 
 
+@directory_routes.route("/all")
+@login_required
+def all_directories():
+    directories = Directory.query.filter_by(user_id=current_user.id).all()
+    return {"directories": [directory.to_dict() for directory in directories]}
+
+
 @directory_routes.route("/", methods=["POST"])
 def new_directory():
     parent_id = request.json["parent directory"]
