@@ -23,7 +23,9 @@ def all_directories():
 
 @directory_routes.route("/", methods=["POST"])
 def new_directory():
-    parent_id = request.json["parent-directory"]
+    parent_directory = Directory.query.filter_by(
+        name=request.json["parent-directory"]).first()
+    parent_id = parent_directory.id
     user_id = current_user.id
     name = request.json["directory-name"]
 
@@ -32,4 +34,4 @@ def new_directory():
     db.session.add(new_directory)
     db.session.commit()
 
-    return new_directory.to_dict()
+    return {"id": new_directory.id}
