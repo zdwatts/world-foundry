@@ -11,5 +11,18 @@ directory_routes = Blueprint("directories", __name__)
 def root_directory():
     root_directory = Directory.query.filter_by(user_id=current_user.id,
                                                parent_id=None).first()
-    print("ROOT:", root_directory)
     return {"root": root_directory.to_dict()}
+
+
+@directory_routes.route("/", methods=["POST"])
+def new_directory():
+    parent_id = request.json["parent directory"]
+    user_id = current_user.id
+    name = request.json["name"]
+
+    new_directory = Directory(parent_id, user_id, name)
+
+    db.session.add(new_directory)
+    db.session.commit()
+
+    return new_directory.to_dict()

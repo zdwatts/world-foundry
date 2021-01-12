@@ -8,6 +8,7 @@ import TreeItem from "@material-ui/lab/TreeItem";
 
 const Directories = () => {
 	const [root, setRoot] = useState([]);
+	const [showForm, setShowForm] = useState(false);
 
 	useEffect(() => {
 		(async () => {
@@ -17,6 +18,13 @@ const Directories = () => {
 			setRoot(rootDirectory);
 		})();
 	}, []);
+
+	const showFormButton = (e) => {
+		e.preventDefault();
+		setShowForm(true);
+	};
+
+	const addDirectory = async (e) => {};
 
 	console.log(root);
 
@@ -40,15 +48,27 @@ const Directories = () => {
 
 	return (
 		<div>
-			<h1>Directories</h1>
-			<TreeView
-				className={classes.root}
-				defaultCollapseIcon={<ExpandMoreIcon />}
-				defaultExpanded={["root"]}
-				defaultExpandIcon={<ChevronRightIcon />}
-			>
-				{renderTree(root)}
-			</TreeView>
+			<div>
+				<h1>Directories</h1>
+			</div>
+			<div>
+				<button type="submit" onClick={showFormButton}>
+					Add
+					{showForm ? (
+						<form onSubmit={addDirectory} className="new-directory-form"></form>
+					) : null}
+				</button>
+			</div>
+			<div>
+				<TreeView
+					className={classes.root}
+					defaultCollapseIcon={<ExpandMoreIcon />}
+					defaultExpanded={["root"]}
+					defaultExpandIcon={<ChevronRightIcon />}
+				>
+					{renderTree(root)}
+				</TreeView>
+			</div>
 		</div>
 	);
 };
