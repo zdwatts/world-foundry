@@ -73,6 +73,9 @@ const Directories = () => {
 								<option>{directory.name}</option>
 							))}
 						</select>
+						<label>Directory Name</label>
+						<input type="text" name="directory-name" />
+						<button type="submit">Add Directory</button>
 					</form>
 				) : null}
 			</div>

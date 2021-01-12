@@ -25,7 +25,7 @@ def all_directories():
 def new_directory():
     parent_id = request.json["parent directory"]
     user_id = current_user.id
-    name = request.json["name"]
+    name = request.json["directory-name"]
 
     new_directory = Directory(parent_id, user_id, name)
 
