@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import TreeView from "@material-ui/lab/TreeView";
@@ -8,17 +9,59 @@ import TreeItem from "@material-ui/lab/TreeItem";
 
 const Directories = () => {
 	const [root, setRoot] = useState([]);
+	const [showForm, setShowForm] = useState(false);
+	const [directories, setDirectories] = useState([]);
+	const [parentDirectory, setParentDirectory] = useState("");
+	const [directoryName, setDirectoryName] = useState("");
+	const history = useHistory();
 
 	useEffect(() => {
 		(async () => {
 			const res = await axios.get("/api/directories/");
-			console.log(res.data.root.children);
 			const rootDirectory = res.data.root;
 			setRoot(rootDirectory);
 		})();
 	}, []);
 
-	console.log(root);
+	useEffect(() => {
+		(async () => {
+			const res = await axios.get("/api/directories/all");
+			const directoriesArray = res.data.directories;
+			setDirectories(directoriesArray);
+		})();
+	}, []);
+
+	const showFormButton = (e) => {
+		e.preventDefault();
+		if (showForm === false) {
+			setShowForm(true);
+		} else {
+			setShowForm(false);
+		}
+	};
+
+	const parentDirectoryChange = (e) => {
+		setParentDirectory(e.target.value);
+	};
+
+	const directoryNameChange = (e) => {
+		setDirectoryName(e.target.value);
+	};
+
+	const addDirectory = async (e) => {
+		e.preventDefault();
+
+		const response = await axios.post("/api/directories/", {
+			"parent-directory": parentDirectory,
+			"directory-name": directoryName,
+		});
+
+		if (response.ok) {
+			const data = await response.json();
+			const directoryId = data.id;
+			history.push(`/directories/${directoryId}`);
+		}
+	};
 
 	const useStyles = makeStyles({
 		root: {
@@ -40,15 +83,42 @@ const Directories = () => {
 
 	return (
 		<div>
-			<h1>Directories</h1>
-			<TreeView
-				className={classes.root}
-				defaultCollapseIcon={<ExpandMoreIcon />}
-				defaultExpanded={["root"]}
-				defaultExpandIcon={<ChevronRightIcon />}
-			>
-				{renderTree(root)}
-			</TreeView>
+			<div>
+				<h1>Directories</h1>
+			</div>
+			<div>
+				<button type="submit" onClick={showFormButton}>
+					Create New Directory
+				</button>
+				{showForm ? (
+					<form onSubmit={addDirectory} className="new-directory-form">
+						<label>Parent Directory: </label>
+						<select name="parent-directory" onChange={parentDirectoryChange}>
+							{directories.map((directory) => (
+								<option>{directory.name}</option>
+							))}
+						</select>
+						<label>Directory Name</label>
+						<input
+							type="text"
+							name="directory-name"
+							onChange={directoryNameChange}
+							required
+						/>
+						<button type="submit">Add Directory</button>
+					</form>
+				) : null}
+			</div>
+			<div>
+				<TreeView
+					className={classes.root}
+					defaultCollapseIcon={<ExpandMoreIcon />}
+					defaultExpanded={["root"]}
+					defaultExpandIcon={<ChevronRightIcon />}
+				>
+					{renderTree(root)}
+				</TreeView>
+			</div>
 		</div>
 	);
 };
