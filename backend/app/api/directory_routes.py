@@ -23,7 +23,7 @@ def all_directories():
 
 @directory_routes.route("/", methods=["POST"])
 def new_directory():
-    parent_id = request.json["parent directory"]
+    parent_id = request.json["parent-directory"]
     user_id = current_user.id
     name = request.json["directory-name"]
 

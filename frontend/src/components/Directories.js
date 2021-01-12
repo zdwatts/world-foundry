@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import TreeView from "@material-ui/lab/TreeView";
@@ -11,7 +12,8 @@ const Directories = () => {
 	const [showForm, setShowForm] = useState(false);
 	const [directories, setDirectories] = useState([]);
 	const [parentDirectory, setParentDirectory] = useState("");
-	const [directoryName, setDirectoryName] = useState("")
+	const [directoryName, setDirectoryName] = useState("");
+	const history = useHistory();
 
 	useEffect(() => {
 		(async () => {
@@ -38,12 +40,27 @@ const Directories = () => {
 		}
 	};
 
-	const
+	const parentDirectoryChange = (e) => {
+		setParentDirectory(e.target.value);
+	};
+
+	const directoryNameChange = (e) => {
+		setDirectoryName(e.target.value);
+	};
 
 	const addDirectory = async (e) => {
 		e.preventDefault();
 
-		const response = await axios.post("/api/directories/");
+		const response = await axios.post("/api/directories/", {
+			"parent-directory": parentDirectory,
+			"directory-name": directoryName,
+		});
+
+		if (response.ok) {
+			const data = await response.json();
+			const directoryId = data.id;
+			history.push(`/directories/${directoryId}`);
+		}
 	};
 
 	const useStyles = makeStyles({
@@ -76,13 +93,18 @@ const Directories = () => {
 				{showForm ? (
 					<form onSubmit={addDirectory} className="new-directory-form">
 						<label>Parent Directory: </label>
-						<select name="parent-directory">
+						<select name="parent-directory" onChange={parentDirectoryChange}>
 							{directories.map((directory) => (
 								<option>{directory.name}</option>
 							))}
 						</select>
 						<label>Directory Name</label>
-						<input type="text" name="directory-name" />
+						<input
+							type="text"
+							name="directory-name"
+							onChange={directoryNameChange}
+							required
+						/>
 						<button type="submit">Add Directory</button>
 					</form>
 				) : null}
