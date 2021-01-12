@@ -68,16 +68,17 @@ def sign_up():
             email=form.data["email"],
             password=form.data["password"]
         )
+        db.session.add(user)
+        db.session.commit()
+        login_user(user)
         user_id = user.id
         root_directory = Directory(
             user_id=user_id,
             name="Your Directories"
         )
-        db.session.add(user)
         db.session.add(root_directory)
         db.session.commit()
-        login_user(user)
-        print(user.to_dict())
+        print("USER:", user.to_dict())
         return user.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}
 

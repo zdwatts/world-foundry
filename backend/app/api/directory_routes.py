@@ -8,7 +8,7 @@ directory_routes = Blueprint("directories", __name__)
 
 @directory_routes.route("/")
 @login_required
-def directory():
+def root_directory():
     root_directory = Directory.query.filter_by(user_id=current_user.id,
                                                parent_id=None).first()
     print("ROOT:", root_directory)
