@@ -11,9 +11,10 @@ const Document = ({ authenticate }) => {
 		(async () => {
 			const response = await axios.get(`/api/documents/${id}`);
 			const data = response.data;
-			console.log(data);
+			console.log(data.document);
+			setDocument(data.document);
 		})();
-	});
+	}, [id]);
 
 	return (
 		<div>
