@@ -52,7 +52,7 @@ function App() {
 					<LandingPage authenticated={authenticated} />
 				</Route>
 				<ProtectedRoute exact path="/documents" authenticated={authenticated}>
-					<DocumentEditor />
+					<DocumentEditor authenticate={authenticate} />
 				</ProtectedRoute>
 				<ProtectedRoute exact path="/directories" authenticated={authenticated}>
 					<Directories />
