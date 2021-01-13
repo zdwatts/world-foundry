@@ -9,12 +9,17 @@ const Document = ({ authenticate }) => {
 
 	useEffect(() => {
 		(async () => {
-			const response = await axios.get(`/apidocuments/${id}`);
+			const response = await axios.get(`/api/documents/${id}`);
 			const data = response.data;
+			console.log(data);
 		})();
 	});
 
-	return <div></div>;
+	return (
+		<div>
+			<h1>Document</h1>
+		</div>
+	);
 };
 
 export default Document;
