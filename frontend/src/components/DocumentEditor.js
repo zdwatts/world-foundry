@@ -58,17 +58,23 @@ const DocumentEditor = ({ authenticate }) => {
 					</div>
 					<div>
 						<label>Parent Directory: </label>
-						<select name="parent-directory" onChange={parentDirectoryChange}>
+						<select
+							required
+							name="parent-directory"
+							onChange={parentDirectoryChange}
+						>
 							{directories.map((directory) => (
 								<option>{directory.name}</option>
 							))}
 						</select>
 					</div>
 					<Editor
+						required
 						apiKey={apiKey}
 						plugins="wordcount wordcount fullscreen image preview"
 						onEditorChange={handleEditorChange}
 					/>
+					<button type="submit">Add Document</button>
 				</form>
 			</div>
 		</div>
