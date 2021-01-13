@@ -32,5 +32,4 @@ def new_document():
 def one_document(id):
     document = Document.query.get(id)
 
-    print("DOCUMENT:", document.to_dict())
     return {"document": document.to_dict()}
