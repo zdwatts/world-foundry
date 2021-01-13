@@ -18,7 +18,10 @@ const DocumentEditor = ({ authenticate }) => {
 						<label>Document Title</label>
 						<input type="text" name="title" required onChange={titleChange} />
 					</div>
-					<Editor apiKey={apiKey} />
+					<Editor
+						apiKey={apiKey}
+						plugins="wordcount wordcount fullscreen image preview"
+					/>
 				</form>
 			</div>
 		</div>
