@@ -23,13 +23,17 @@ def all_directories():
 
 @directory_routes.route("/", methods=["POST"])
 def new_directory():
-    parent_directory_name = request.json["parent-directory"]
-    parent_directory = Directory.query.filter_by(name=parent_directory_name).first()
-    parent_id = parent_directory.id
+    parent_directory_id = request.json["parent-directory"]
+    parent_directory = Directory.query.get(parent_directory_id)
+    print("PARENT DIRECTORY:", parent_directory.to_dict())
+
+    if parent_directory is None:
+        return {"errors": ["parent directory with id cannot be found"]}
+
     user_id = current_user.id
     name = request.json["directory-name"]
 
-    new_directory = Directory(parent_id=parent_id, user_id=user_id, name=name)
+    new_directory = Directory(parent_id=parent_directory_id, user_id=user_id, name=name)
 
     db.session.add(new_directory)
     db.session.commit()

@@ -28,6 +28,7 @@ const Directories = () => {
 			const res = await axios.get("/api/directories/all");
 			const directoriesArray = res.data.directories;
 			setDirectories(directoriesArray);
+			setParentDirectory(directoriesArray[0].id);
 		})();
 	}, []);
 
@@ -93,9 +94,13 @@ const Directories = () => {
 				{showForm ? (
 					<form onSubmit={addDirectory} className="new-directory-form">
 						<label>Parent Directory: </label>
-						<select name="parent-directory" onChange={parentDirectoryChange}>
+						<select
+							name="parent-directory"
+							onChange={parentDirectoryChange}
+							value={parentDirectory}
+						>
 							{directories.map((directory) => (
-								<option>{directory.name}</option>
+								<option value={directory.id}>{directory.name}</option>
 							))}
 						</select>
 						<label>Directory Name</label>

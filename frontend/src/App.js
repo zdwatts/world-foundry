@@ -9,6 +9,7 @@ import LandingPage from "./components/LandingPage";
 import NavBar from "./components/NavBar";
 import DocumentEditor from "./components/DocumentEditor";
 import Directories from "./components/Directories";
+import Document from "./components/Document";
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -52,7 +53,10 @@ function App() {
 					<LandingPage authenticated={authenticated} />
 				</Route>
 				<ProtectedRoute exact path="/documents" authenticated={authenticated}>
-					<DocumentEditor />
+					<DocumentEditor authenticate={authenticate} />
+				</ProtectedRoute>
+				<ProtectedRoute path="/documents/:id" authenticated={authenticated}>
+					<Document authenticate={authenticate} />
 				</ProtectedRoute>
 				<ProtectedRoute exact path="/directories" authenticated={authenticated}>
 					<Directories />
