@@ -6,6 +6,7 @@ import axios from "axios";
 const DocumentEditor = ({ authenticate }) => {
 	const [title, setTitle] = useState("");
 	const [body, setBody] = useState("");
+	const [directories, setDirectories] = useState([]);
 	const history = useHistory();
 
 	const apiKey = process.env.REACT_APP_TINY_MCE;
@@ -40,6 +41,10 @@ const DocumentEditor = ({ authenticate }) => {
 					<div>
 						<label>Document Title</label>
 						<input type="text" name="title" required onChange={titleChange} />
+					</div>
+					<div>
+						<label>Parent Directory</label>
+						<input />
 					</div>
 					<Editor
 						apiKey={apiKey}
