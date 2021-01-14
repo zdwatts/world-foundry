@@ -15,7 +15,7 @@ const NavBar = ({ setAuthenticated, authenticated, authenticate }) => {
 							fontFamily: "Permanent Marker, cursive",
 						}}
 					>
-						Writer's Workshop
+						World Foundry
 					</h1>
 				</a>
 			</div>
