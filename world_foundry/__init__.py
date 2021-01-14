@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_login import LoginManager
@@ -56,5 +56,5 @@ def inject_csrf_token(response):
 def react_root(path):
     print("path", path)
     if path == "favicon.ico":
-        return app.send_from_directory("client/build/favicon.ico")
-    return app.send_from_directory("client/build/index.html")
+        return send_from_directory("client/build/favicon.ico")
+    return send_from_directory("client/build/index.html")
