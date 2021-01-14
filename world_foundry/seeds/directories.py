@@ -1,4 +1,4 @@
-from app.models import db, Directory, User
+from world_foundry.models import db, Directory, User
 
 
 def seed_directories():

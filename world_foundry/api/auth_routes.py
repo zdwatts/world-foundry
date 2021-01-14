@@ -1,6 +1,6 @@
 from flask import Blueprint, request
-from app.models import User, Directory, db
-from app.forms import LoginForm, SignUpForm
+from world_foundry.models import User, Directory, db
+from world_foundry.forms import LoginForm, SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
 
 

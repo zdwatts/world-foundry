@@ -1,5 +1,5 @@
 from werkzeug.security import generate_password_hash
-from app.models import db, User
+from world_foundry.models import db, User
 
 
 def seed_users():

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import Document, Directory, db
+from world_foundry.models import Document, Directory, db
 
 document_routes = Blueprint("documents", __name__)
 

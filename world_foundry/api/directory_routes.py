@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from app.models import Directory, User, db
+from world_foundry.models import Directory, User, db
 from flask_login import current_user, login_required
 
 
