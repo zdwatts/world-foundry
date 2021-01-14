@@ -18,7 +18,7 @@ const Document = ({ authenticate }) => {
 
 	return (
 		<div>
-			<h1>Document</h1>
+			<h1>{document.title}</h1>
 		</div>
 	);
 };
