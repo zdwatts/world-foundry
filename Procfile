@@ -1,1 +1,1 @@
-web: gunicorn world_foundry.wsgi --log-file -
+web: gunicorn world_foundry:app --log-file -
