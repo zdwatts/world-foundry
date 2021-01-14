@@ -13,6 +13,7 @@ const Directories = () => {
 	const [directories, setDirectories] = useState([]);
 	const [parentDirectory, setParentDirectory] = useState("");
 	const [directoryName, setDirectoryName] = useState("");
+	const [documents, setDocuments] = useState("");
 	const history = useHistory();
 
 	useEffect(() => {
@@ -31,6 +32,13 @@ const Directories = () => {
 			setParentDirectory(directoriesArray[0].id);
 		})();
 	}, []);
+
+	useEffect(() => {
+		(async () => {
+			const res = await axios.get("/api/documents/");
+			console.log(res.data);
+		})();
+	});
 
 	const showFormButton = (e) => {
 		e.preventDefault();
