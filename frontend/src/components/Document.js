@@ -17,8 +17,13 @@ const Document = ({ authenticate }) => {
 	}, [id]);
 
 	return (
-		<div>
-			<h1>{document.title}</h1>
+		<div className="document-wrapper">
+			<div className="title-wrapper">
+				<h1>{document.title}</h1>
+			</div>
+			<div className="body-wrapper">
+				<p>{document.body}</p>
+			</div>
 		</div>
 	);
 };
