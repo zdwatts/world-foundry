@@ -43,7 +43,7 @@ def delete_document(id):
         return jsonify("Document not found")
     db.session.delete(document)
     db.session.commit()
-    return jsonify("deleted")
+    return jsonify("Document deleted from database")
 
 
 @document_routes.route("/<int:id>", methods=["PUT"])
