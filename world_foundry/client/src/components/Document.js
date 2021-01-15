@@ -22,7 +22,9 @@ const Document = ({ authenticate }) => {
 			<div className="title-wrapper">
 				<h1>{document.title}</h1>
 			</div>
-			<div className="body-wrapper">{parse(document.body)}</div>
+			<div className="body-wrapper">
+				{document.body && parse(document.body)}
+			</div>
 		</div>
 	);
 };
