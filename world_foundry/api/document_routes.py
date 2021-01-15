@@ -44,3 +44,22 @@ def delete_document(id):
     db.session.delete(document)
     db.session.commit()
     return jsonify("deleted")
+
+
+@document_routes.route("/<int:id>", methods=["PUT"])
+def edit_document(id):
+    document = Document.query.get(id)
+    new_title = request.json["title"]
+    new_body = request.json["body"]
+    parent_directory_name = request.json["parent-directory"]
+    parent_directory = Directory.query.filter_by(
+                                        name=parent_directory_name).first()
+    new_directory_id = parent_directory.id
+
+    document.title = new_title
+    document.body = new_body
+    document.directory_id = new_directory_id
+
+    db.session.add(document)
+    db.session.commit()
+    return document.to_dict()
