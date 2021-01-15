@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 import parse from "html-react-parser";
 
 const Document = ({ authenticate }) => {
 	const [document, setDocument] = useState("");
+	const history = useHistory();
 
 	const { id } = useParams();
 
@@ -18,7 +19,7 @@ const Document = ({ authenticate }) => {
 
 	const deleteDocument = async (id) => {
 		await axios.delete(`/api/documents/${id}`);
-		window.location.reload(false);
+		history.push("/directories");
 	};
 
 	const editDocument = () => {};
