@@ -32,7 +32,9 @@ const Document = ({ authenticate }) => {
 				{document.body && parse(document.body)}
 			</div>
 			<div className="buttons-wrapper">
-				<button onClick={deleteDocument(document.id)}>Delete Document</button>
+				<button onClick={() => deleteDocument(document.id)}>
+					Delete Document
+				</button>
 				<button onClick={editDocument}>Edit Document</button>
 			</div>
 		</div>
