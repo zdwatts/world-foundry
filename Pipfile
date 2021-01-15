@@ -18,10 +18,10 @@ flask-wtf = "*"
 pycodestyle = "*"
 werkzeug = "*"
 click = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 psycopg2 = "*"
-psycopg2-binary = "*"
 flask = "*"
 sqlalchemy = "*"
 flask-sqlalchemy = "*"
