@@ -17,7 +17,8 @@ def new_document():
     title = request.json["title"]
     body = request.json["body"]
     parent_directory_name = request.json["parent-directory"]
-    parent_directory = Directory.query.filter_by(name=parent_directory_name).first()
+    parent_directory = Directory.query.filter_by(
+                                        name=parent_directory_name).first()
     directory_id = parent_directory.id
 
     new_document = Document(title=title, body=body, directory_id=directory_id)
