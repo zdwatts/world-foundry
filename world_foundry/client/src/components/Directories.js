@@ -13,7 +13,7 @@ const Directories = () => {
 	const [directories, setDirectories] = useState([]);
 	const [parentDirectory, setParentDirectory] = useState("");
 	const [directoryName, setDirectoryName] = useState("");
-	const [documents, setDocuments] = useState("");
+	const [documents, setDocuments] = useState([]);
 	const history = useHistory();
 
 	useEffect(() => {
@@ -86,11 +86,27 @@ const Directories = () => {
 
 	const classes = useStyles();
 
+	// <TreeItem
+	// 		key={document.id}
+	// 		nodeId={document.id}
+	// 		label={document.name}
+	// 	/>
+
 	const renderTree = (root) => (
 		<TreeItem key={root.id} nodeId={root.id} label={root.name}>
 			{Array.isArray(root.children)
 				? root.children.map((directory) => renderTree(directory))
 				: null}
+			{documents
+				.filter((document) => document.directory_id === root.id)
+				.map((document) => (
+					<TreeItem
+						key={document.id}
+						nodeId={`${root.id}-${document.id}`}
+						label={document.title}
+						onClick={() => history.push(`documents/${document.id}`)}
+					/>
+				))}
 		</TreeItem>
 	);
 
