@@ -36,9 +36,9 @@ const Directories = () => {
 	useEffect(() => {
 		(async () => {
 			const res = await axios.get("/api/documents/");
-			console.log(res.data);
+			setDocuments(res.data.documents);
 		})();
-	});
+	}, []);
 
 	const showFormButton = (e) => {
 		e.preventDefault();
