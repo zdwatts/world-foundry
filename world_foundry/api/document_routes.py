@@ -34,3 +34,13 @@ def one_document(id):
     document = Document.query.get(id)
 
     return {"document": document.to_dict()}
+
+
+@document_routes.route("/<int:id>", methods=["DELETE"])
+def delete_document(id):
+    document = Document.query.get(id)
+    if not document:
+        return jsonify("Document not found")
+    db.session.delete(document)
+    db.session.commit()
+    return jsonify("deleted")

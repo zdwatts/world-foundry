@@ -16,6 +16,13 @@ const Document = ({ authenticate }) => {
 		})();
 	}, [id]);
 
+	const deleteDocument = async (id) => {
+		await axios.delete(`/api/documents/${id}`);
+		window.location.reload(false);
+	};
+
+	const editDocument = () => {};
+
 	return (
 		<div className="document-wrapper">
 			<div className="title-wrapper">
@@ -23,6 +30,10 @@ const Document = ({ authenticate }) => {
 			</div>
 			<div className="body-wrapper">
 				{document.body && parse(document.body)}
+			</div>
+			<div className="buttons-wrapper">
+				<button onClick={deleteDocument(document.id)}>Delete Document</button>
+				<button onClick={editDocument}>Edit Document</button>
 			</div>
 		</div>
 	);
