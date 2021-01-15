@@ -64,7 +64,7 @@ const DocumentEditor = ({ authenticate }) => {
 							onChange={parentDirectoryChange}
 						>
 							{directories.map((directory) => (
-								<option>{directory.name}</option>
+								<option key={directory.id}>{directory.name}</option>
 							))}
 						</select>
 					</div>

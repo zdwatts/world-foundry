@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import parse from "html-react-parser";
 
 const Document = ({ authenticate }) => {
 	const [document, setDocument] = useState("");
@@ -21,9 +22,7 @@ const Document = ({ authenticate }) => {
 			<div className="title-wrapper">
 				<h1>{document.title}</h1>
 			</div>
-			<div className="body-wrapper">
-				<p>{document.body}</p>
-			</div>
+			<div className="body-wrapper">{parse(document.body)}</div>
 		</div>
 	);
 };
