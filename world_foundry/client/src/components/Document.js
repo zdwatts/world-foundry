@@ -35,7 +35,7 @@ const Document = ({ authenticate }) => {
 				<button onClick={() => deleteDocument(document.id)}>
 					Delete Document
 				</button>
-				<button onClick={editDocument}>Edit Document</button>
+				<button onClick={() => editDocument}>Edit Document</button>
 			</div>
 		</div>
 	);
