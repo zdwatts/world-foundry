@@ -24,8 +24,6 @@ const Directories = () => {
 		})();
 	}, []);
 
-	console.log(root);
-
 	useEffect(() => {
 		(async () => {
 			const res = await axios.get("/api/directories/all");
@@ -41,8 +39,6 @@ const Directories = () => {
 			setDocuments(res.data.documents);
 		})();
 	}, []);
-
-	console.log(documents);
 
 	const showFormButton = (e) => {
 		e.preventDefault();
