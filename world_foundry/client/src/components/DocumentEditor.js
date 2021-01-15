@@ -35,10 +35,16 @@ const DocumentEditor = ({ authenticate }) => {
 	const addDocument = async (e) => {
 		e.preventDefault();
 
-		const response = await axios.post("/api/documents/", {
-			title,
-			body,
-			"parent-directory": parentDirectory,
+		const response = await fetch("/api/documents", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				title,
+				body,
+				"parent-directory": parentDirectory,
+			}),
 		});
 
 		if (response.ok) {

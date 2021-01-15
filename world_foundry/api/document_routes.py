@@ -12,7 +12,7 @@ def documents():
     return {"documents": [document.to_dict() for document in documents]}
 
 
-@document_routes.route("/", methods=["POST"])
+@document_routes.route("", methods=["POST"])
 def new_document():
     title = request.json["title"]
     body = request.json["body"]
