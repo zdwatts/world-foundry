@@ -24,6 +24,8 @@ const Document = ({ authenticate }) => {
 
 	const editDocument = async (id) => {};
 
+	// const editor;
+
 	return (
 		<div className="document-wrapper">
 			<div className="title-wrapper">

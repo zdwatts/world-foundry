@@ -40,15 +40,6 @@ const Directories = () => {
 		})();
 	}, []);
 
-	const showFormButton = (e) => {
-		e.preventDefault();
-		if (showForm === false) {
-			setShowForm(true);
-		} else {
-			setShowForm(false);
-		}
-	};
-
 	const parentDirectoryChange = (e) => {
 		setParentDirectory(e.target.value);
 	};
@@ -112,7 +103,7 @@ const Directories = () => {
 				<h1>Directories</h1>
 			</div>
 			<div>
-				<button type="submit" onClick={showFormButton}>
+				<button type="submit" onClick={() => setShowForm(!showForm)}>
 					Create New Directory
 				</button>
 				{showForm ? (
