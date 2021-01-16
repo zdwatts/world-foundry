@@ -7,6 +7,8 @@ import parse from "html-react-parser";
 const Document = ({ authenticate }) => {
 	const [document, setDocument] = useState("");
 	const [showEditor, setShowEditor] = useState(false);
+	const [newTitle, setNewTitle] = useState("");
+	const [newBody, setNewBody] = useState("");
 	const history = useHistory();
 
 	const { id } = useParams();
@@ -26,7 +28,10 @@ const Document = ({ authenticate }) => {
 		history.push("/directories");
 	};
 
-	// const editor;
+	const handleEdit = async (id) => {
+		const request = { title: newTitle, body: newBody };
+		await axios.put(`/api/documents/${id}`);
+	};
 
 	return (
 		<>
@@ -34,9 +39,13 @@ const Document = ({ authenticate }) => {
 				<div>
 					<form>
 						<Editor
+							value={newBody}
 							apiKey={apiKey}
 							plugins="wordcount wordcount fullscreen image preview"
 						/>
+						<button type="submit" onSubmit={handleEdit(document.id)}>
+							Save Changes
+						</button>
 					</form>
 					<button onClick={() => setShowEditor(!showEditor)}>Cancel</button>
 				</div>
