@@ -22,7 +22,7 @@ const Document = ({ authenticate }) => {
 		history.push("/directories");
 	};
 
-	const editDocument = () => {};
+	const editDocument = async (id) => {};
 
 	return (
 		<div className="document-wrapper">
@@ -36,7 +36,7 @@ const Document = ({ authenticate }) => {
 				<button onClick={() => deleteDocument(document.id)}>
 					Delete Document
 				</button>
-				<button onClick={() => editDocument}>Edit Document</button>
+				<button onClick={() => editDocument(document.id)}>Edit Document</button>
 			</div>
 		</div>
 	);
