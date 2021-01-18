@@ -48,7 +48,7 @@
 
 .document-wrapper {
 	border-radius: 5px;
-	margin: 40px 200px;
+	margin: 40px 500px;
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
 		rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
 		rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -62,7 +62,7 @@
 	width: 100%;
 	margin: 0;
 	font-family: "Roboto", sans-serif;
-	text-align: center;
+	text-align: left;
 }
 
 @media only screen and (min-width: 1200px) {

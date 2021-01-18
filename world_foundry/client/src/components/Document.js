@@ -38,7 +38,7 @@ const Document = ({ authenticate }) => {
 		setNewBody(content);
 	};
 
-	const handleEdit = async (id) => {
+	const handleEdit = async () => {
 		const request = { title: newTitle, body: newBody };
 		await axios.put(`/api/documents/${id}`, request);
 	};
