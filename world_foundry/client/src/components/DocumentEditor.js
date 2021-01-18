@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Editor } from "@tinymce/tinymce-react";
 import axios from "axios";
+import "./styles/DocumentEditor.css";
 
 const DocumentEditor = ({ authenticate }) => {
 	const [title, setTitle] = useState("");
@@ -55,15 +56,16 @@ const DocumentEditor = ({ authenticate }) => {
 	};
 
 	return (
-		<div className="document-wrapper">
-			<div>
+		<div className="content-wrapper">
+			<div className="form-wrapper">
+				<h1 className="form-title">Write</h1>
 				<form onSubmit={addDocument}>
-					<div>
+					<div className="title-wrapper">
 						<label>Document Title</label>
 						<input type="text" name="title" required onChange={titleChange} />
 					</div>
-					<div>
-						<label>Parent Directory: </label>
+					<div className="parent-directory-wrapper">
+						<label>Parent Directory</label>
 						<select
 							required
 							name="parent-directory"
@@ -80,7 +82,11 @@ const DocumentEditor = ({ authenticate }) => {
 						plugins="wordcount wordcount fullscreen image preview"
 						onEditorChange={handleEditorChange}
 					/>
-					<button type="submit">Add Document</button>
+					<div className="button-wrapper">
+						<button type="submit" className="submit-button">
+							Add Document
+						</button>
+					</div>
 				</form>
 			</div>
 		</div>

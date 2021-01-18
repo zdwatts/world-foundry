@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { Editor } from "@tinymce/tinymce-react";
 import axios from "axios";
 import parse from "html-react-parser";
+import "./styles/Document.css";
 
 const Document = ({ authenticate }) => {
 	const [document, setDocument] = useState("");
@@ -37,17 +38,17 @@ const Document = ({ authenticate }) => {
 		setNewBody(content);
 	};
 
-	const handleEdit = async (id) => {
+	const handleEdit = async () => {
 		const request = { title: newTitle, body: newBody };
 		await axios.put(`/api/documents/${id}`, request);
 	};
 
 	return (
-		<>
+		<div className="content-wrapper">
 			{showEditor ? (
-				<div>
+				<div className="form-wrapper">
 					<form onSubmit={handleEdit(document.id)}>
-						<div>
+						<div className="title-wrapper">
 							<label>New Title</label>
 							<input
 								type="text"
@@ -55,17 +56,26 @@ const Document = ({ authenticate }) => {
 								onChange={handleTitleChange}
 							/>
 						</div>
-						<div>
-							<Editor
-								value={newBody}
-								apiKey={apiKey}
-								plugins="wordcount wordcount fullscreen image preview"
-								onEditorChange={handleEditorChange}
-							/>
+						<Editor
+							value={newBody}
+							apiKey={apiKey}
+							plugins="wordcount wordcount fullscreen image preview"
+							onEditorChange={handleEditorChange}
+						/>
+						<div className="buttons-wrapper">
+							<button type="submit" className="buttons">
+								Save
+							</button>
 						</div>
-						<button type="submit">Save Changes</button>
 					</form>
-					<button onClick={() => setShowEditor(!showEditor)}>Cancel</button>
+					<div className="buttons-wrapper">
+						<button
+							className="buttons"
+							onClick={() => setShowEditor(!showEditor)}
+						>
+							Cancel
+						</button>
+					</div>
 				</div>
 			) : (
 				<div className="document-wrapper">
@@ -76,16 +86,22 @@ const Document = ({ authenticate }) => {
 						{document.body && parse(document.body)}
 					</div>
 					<div className="buttons-wrapper">
-						<button onClick={() => deleteDocument(document.id)}>
-							Delete Document
+						<button
+							className="buttons"
+							onClick={() => deleteDocument(document.id)}
+						>
+							Delete
 						</button>
-						<button onClick={() => setShowEditor(!showEditor)}>
-							Edit Document
+						<button
+							className="buttons"
+							onClick={() => setShowEditor(!showEditor)}
+						>
+							Edit
 						</button>
 					</div>
 				</div>
 			)}
-		</>
+		</div>
 	);
 };
 
