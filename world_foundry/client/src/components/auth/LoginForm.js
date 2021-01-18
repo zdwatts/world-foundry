@@ -41,7 +41,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 					))}
 				</div>
 				<div className="input-wrapper">
-					<h1 className="form-title">Writer's Workshop</h1>
+					<h1 className="form-title">World Foundry</h1>
 					<h3 className="form-subtitle">Log In</h3>
 					<label>Email</label>
 					<input
