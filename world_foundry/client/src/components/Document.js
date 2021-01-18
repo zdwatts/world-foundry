@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { Editor } from "@tinymce/tinymce-react";
 import axios from "axios";
 import parse from "html-react-parser";
+import "./styles/Document.css";
 
 const Document = ({ authenticate }) => {
 	const [document, setDocument] = useState("");
@@ -43,11 +44,11 @@ const Document = ({ authenticate }) => {
 	};
 
 	return (
-		<>
+		<div className="content-wrapper">
 			{showEditor ? (
-				<div>
+				<div className="form-wrapper">
 					<form onSubmit={handleEdit(document.id)}>
-						<div>
+						<div className="title-wrapper">
 							<label>New Title</label>
 							<input
 								type="text"
@@ -55,15 +56,17 @@ const Document = ({ authenticate }) => {
 								onChange={handleTitleChange}
 							/>
 						</div>
-						<div>
-							<Editor
-								value={newBody}
-								apiKey={apiKey}
-								plugins="wordcount wordcount fullscreen image preview"
-								onEditorChange={handleEditorChange}
-							/>
+						<Editor
+							value={newBody}
+							apiKey={apiKey}
+							plugins="wordcount wordcount fullscreen image preview"
+							onEditorChange={handleEditorChange}
+						/>
+						<div className="button-wrapper">
+							<button type="submit" className="buttons">
+								Save Changes
+							</button>
 						</div>
-						<button type="submit">Save Changes</button>
 					</form>
 					<button onClick={() => setShowEditor(!showEditor)}>Cancel</button>
 				</div>
@@ -76,16 +79,22 @@ const Document = ({ authenticate }) => {
 						{document.body && parse(document.body)}
 					</div>
 					<div className="buttons-wrapper">
-						<button onClick={() => deleteDocument(document.id)}>
+						<button
+							className="buttons"
+							onClick={() => deleteDocument(document.id)}
+						>
 							Delete Document
 						</button>
-						<button onClick={() => setShowEditor(!showEditor)}>
+						<button
+							className="buttons"
+							onClick={() => setShowEditor(!showEditor)}
+						>
 							Edit Document
 						</button>
 					</div>
 				</div>
 			)}
-		</>
+		</div>
 	);
 };
 
