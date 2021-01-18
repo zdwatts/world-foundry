@@ -56,7 +56,7 @@ const DocumentEditor = ({ authenticate }) => {
 	};
 
 	return (
-		<div className="document-wrapper">
+		<div className="content-wrapper">
 			<div className="form-wrapper">
 				<form onSubmit={addDocument}>
 					<div className="title-wrapper">
