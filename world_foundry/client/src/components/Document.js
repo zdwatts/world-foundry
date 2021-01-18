@@ -7,8 +7,6 @@ import parse from "html-react-parser";
 const Document = ({ authenticate }) => {
 	const [document, setDocument] = useState("");
 	const [showEditor, setShowEditor] = useState(false);
-	const [newTitle, setNewTitle] = useState("");
-	const [newBody, setNewBody] = useState("");
 	const history = useHistory();
 
 	const { id } = useParams();
@@ -23,35 +21,49 @@ const Document = ({ authenticate }) => {
 		})();
 	}, [id]);
 
+	const [newTitle, setNewTitle] = useState(document.title);
+	const [newBody, setNewBody] = useState(document.body);
+
 	const deleteDocument = async (id) => {
 		await axios.delete(`/api/documents/${id}`);
 		history.push("/directories");
 	};
 
+	const handleTitleChange = (e) => {
+		setNewTitle(e.target.value);
+	};
+
+	const handleEditorChange = (content, editor) => {
+		setNewBody(content);
+	};
+
 	const handleEdit = async (id) => {
 		const request = { title: newTitle, body: newBody };
-		await axios.put(`/api/documents/${id}`);
+		await axios.put(`/api/documents/${id}`, request);
 	};
 
 	return (
 		<>
 			{showEditor ? (
 				<div>
-					<form>
+					<form onSubmit={handleEdit(document.id)}>
 						<div>
 							<label>New Title</label>
-							<input type="text" value={newTitle} />
+							<input
+								type="text"
+								value={newTitle}
+								onChange={handleTitleChange}
+							/>
 						</div>
 						<div>
 							<Editor
 								value={newBody}
 								apiKey={apiKey}
 								plugins="wordcount wordcount fullscreen image preview"
+								onEditorChange={handleEditorChange}
 							/>
 						</div>
-						<button type="submit" onSubmit={handleEdit(document.id)}>
-							Save Changes
-						</button>
+						<button type="submit">Save Changes</button>
 					</form>
 					<button onClick={() => setShowEditor(!showEditor)}>Cancel</button>
 				</div>
