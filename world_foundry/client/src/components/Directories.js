@@ -107,7 +107,7 @@ const Directories = () => {
 					className="buttons"
 					onClick={() => setShowForm(!showForm)}
 				>
-					Create New Directory
+					Add New Directory
 				</button>
 				{showForm ? (
 					<form onSubmit={addDirectory} className="new-directory-form">
