@@ -62,13 +62,20 @@ const Document = ({ authenticate }) => {
 							plugins="wordcount wordcount fullscreen image preview"
 							onEditorChange={handleEditorChange}
 						/>
-						<div className="editor-button-wrapper">
+						<div className="editor-buttons-wrapper">
 							<button type="submit" className="buttons">
 								Save Changes
 							</button>
 						</div>
 					</form>
-					<button onClick={() => setShowEditor(!showEditor)}>Cancel</button>
+					<div className="editor-buttons-wrapper">
+						<button
+							className="buttons"
+							onClick={() => setShowEditor(!showEditor)}
+						>
+							Cancel
+						</button>
+					</div>
 				</div>
 			) : (
 				<div className="document-wrapper">
