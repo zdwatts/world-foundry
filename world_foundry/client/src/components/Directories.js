@@ -58,9 +58,7 @@ const Directories = () => {
 		});
 
 		if (response.ok) {
-			const data = await response.json();
-			const directoryId = data.id;
-			history.push(`/directories/${directoryId}`);
+			history.push(`/directories/`);
 		}
 	};
 
@@ -104,29 +102,39 @@ const Directories = () => {
 				<h1>Directories</h1>
 			</div>
 			<div>
-				<button type="submit" onClick={() => setShowForm(!showForm)}>
+				<button
+					type="submit"
+					className="buttons"
+					onClick={() => setShowForm(!showForm)}
+				>
 					Create New Directory
 				</button>
 				{showForm ? (
 					<form onSubmit={addDirectory} className="new-directory-form">
-						<label>Parent Directory: </label>
-						<select
-							name="parent-directory"
-							onChange={parentDirectoryChange}
-							value={parentDirectory}
-						>
-							{directories.map((directory) => (
-								<option value={directory.id}>{directory.name}</option>
-							))}
-						</select>
-						<label>Directory Name</label>
-						<input
-							type="text"
-							name="directory-name"
-							onChange={directoryNameChange}
-							required
-						/>
-						<button type="submit">Add Directory</button>
+						<div className="inputs-wrapper">
+							<label>Parent Directory</label>
+							<select
+								name="parent-directory"
+								onChange={parentDirectoryChange}
+								value={parentDirectory}
+								required
+							>
+								{directories.map((directory) => (
+									<option value={directory.id}>{directory.name}</option>
+								))}
+							</select>
+
+							<label>Directory Name</label>
+							<input
+								type="text"
+								name="directory-name"
+								onChange={directoryNameChange}
+								required
+							/>
+						</div>
+						<button type="submit" className="buttons">
+							Add Directory
+						</button>
 					</form>
 				) : null}
 			</div>
