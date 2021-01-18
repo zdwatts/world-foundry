@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { authenticate } from "../services/auth";
+import Directories from "./Directories";
+import ProtectedRoute from "./auth/ProtectedRoute";
 import "./styles/LandingPage.css";
 
 const LandingPage = ({ authenticated }) => {
@@ -27,7 +29,12 @@ const LandingPage = ({ authenticated }) => {
 		<div className="content-wrapper">
 			<div className="greeting-wrapper">
 				<h1 className="greeting">Greetings, {greeting()}.</h1>
-				{authenticated ? null : (
+				{authenticated ? (
+					<p className="greeting-body">
+						Click on the directories link to view your directories and
+						documents, or click "Write" to create a new document.
+					</p>
+				) : (
 					<p className="greeting-body">
 						Welcome to World Foundry. This is a place for those who wish to take
 						their worlds to the next level. It is here that you will cultivate
