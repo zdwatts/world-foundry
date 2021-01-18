@@ -38,11 +38,17 @@ const Document = ({ authenticate }) => {
 			{showEditor ? (
 				<div>
 					<form>
-						<Editor
-							value={newBody}
-							apiKey={apiKey}
-							plugins="wordcount wordcount fullscreen image preview"
-						/>
+						<div>
+							<label>New Title</label>
+							<input type="text" value={newTitle} />
+						</div>
+						<div>
+							<Editor
+								value={newBody}
+								apiKey={apiKey}
+								plugins="wordcount wordcount fullscreen image preview"
+							/>
+						</div>
 						<button type="submit" onSubmit={handleEdit(document.id)}>
 							Save Changes
 						</button>
