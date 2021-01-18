@@ -52,12 +52,12 @@ const Document = ({ authenticate }) => {
 							<label>New Title</label>
 							<input
 								type="text"
-								value={newTitle}
+								value={document.title}
 								onChange={handleTitleChange}
 							/>
 						</div>
 						<Editor
-							value={newBody}
+							value={document.body}
 							apiKey={apiKey}
 							plugins="wordcount wordcount fullscreen image preview"
 							onEditorChange={handleEditorChange}
