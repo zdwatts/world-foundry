@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { authenticate } from "../services/auth";
-import Directories from "./Directories";
-import ProtectedRoute from "./auth/ProtectedRoute";
 import "./styles/LandingPage.css";
 
 const LandingPage = ({ authenticated }) => {
