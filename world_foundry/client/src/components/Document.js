@@ -46,9 +46,9 @@ const Document = ({ authenticate }) => {
 	return (
 		<div className="content-wrapper">
 			{showEditor ? (
-				<div className="editor-form-wrapper">
+				<div className="form-wrapper">
 					<form onSubmit={handleEdit(document.id)}>
-						<div className="editor-title-wrapper">
+						<div className="title-wrapper">
 							<label>New Title</label>
 							<input
 								type="text"
@@ -62,13 +62,13 @@ const Document = ({ authenticate }) => {
 							plugins="wordcount wordcount fullscreen image preview"
 							onEditorChange={handleEditorChange}
 						/>
-						<div className="editor-buttons-wrapper">
+						<div className="buttons-wrapper">
 							<button type="submit" className="buttons">
-								Save Changes
+								Save
 							</button>
 						</div>
 					</form>
-					<div className="editor-buttons-wrapper">
+					<div className="buttons-wrapper">
 						<button
 							className="buttons"
 							onClick={() => setShowEditor(!showEditor)}
@@ -90,13 +90,13 @@ const Document = ({ authenticate }) => {
 							className="buttons"
 							onClick={() => deleteDocument(document.id)}
 						>
-							Delete Document
+							Delete
 						</button>
 						<button
 							className="buttons"
 							onClick={() => setShowEditor(!showEditor)}
 						>
-							Edit Document
+							Edit
 						</button>
 					</div>
 				</div>
