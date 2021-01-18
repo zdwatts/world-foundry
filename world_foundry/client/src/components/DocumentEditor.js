@@ -58,13 +58,14 @@ const DocumentEditor = ({ authenticate }) => {
 	return (
 		<div className="content-wrapper">
 			<div className="form-wrapper">
+				<h1 className="form-title">Write</h1>
 				<form onSubmit={addDocument}>
 					<div className="title-wrapper">
 						<label>Document Title</label>
 						<input type="text" name="title" required onChange={titleChange} />
 					</div>
 					<div className="parent-directory-wrapper">
-						<label>Parent Directory: </label>
+						<label>Parent Directory</label>
 						<select
 							required
 							name="parent-directory"
@@ -81,9 +82,11 @@ const DocumentEditor = ({ authenticate }) => {
 						plugins="wordcount wordcount fullscreen image preview"
 						onEditorChange={handleEditorChange}
 					/>
-					<button type="submit" className="submit-button">
-						Add Document
-					</button>
+					<div className="button-wrapper">
+						<button type="submit" className="submit-button">
+							Add Document
+						</button>
+					</div>
 				</form>
 			</div>
 		</div>
