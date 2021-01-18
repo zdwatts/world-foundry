@@ -46,9 +46,9 @@ const Document = ({ authenticate }) => {
 	return (
 		<div className="content-wrapper">
 			{showEditor ? (
-				<div className="form-wrapper">
+				<div className="editor-form-wrapper">
 					<form onSubmit={handleEdit(document.id)}>
-						<div className="title-wrapper">
+						<div className="editor-title-wrapper">
 							<label>New Title</label>
 							<input
 								type="text"
@@ -62,7 +62,7 @@ const Document = ({ authenticate }) => {
 							plugins="wordcount wordcount fullscreen image preview"
 							onEditorChange={handleEditorChange}
 						/>
-						<div className="button-wrapper">
+						<div className="editor-button-wrapper">
 							<button type="submit" className="buttons">
 								Save Changes
 							</button>
