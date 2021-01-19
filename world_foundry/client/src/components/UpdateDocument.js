@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Editor } from "@tinymce/tinymce-react";
+import Document from "./Document";
 import "./styles/Document.css";
 
 const UpdateDocument = ({ title, body }) => {
@@ -28,7 +29,9 @@ const UpdateDocument = ({ title, body }) => {
 
 	return (
 		<div>
-			{showEditor ? null : (
+			{showEditor ? (
+				<Document />
+			) : (
 				<div className="form-wrapper">
 					<form onSubmit={handleEdit}>
 						<div className="title-wrapper">
