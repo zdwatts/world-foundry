@@ -4,7 +4,7 @@ from world_foundry.models import db, Directory, User
 def seed_directories():
 
     root = Directory(user_id=1,
-                     name="Your Directories")
+                     name="Your Worlds")
 
     bloodmoon_child = Directory(user_id=1, name="Bloodmoon Child")
 
