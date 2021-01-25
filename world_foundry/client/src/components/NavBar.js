@@ -27,9 +27,11 @@ const NavBar = ({ setAuthenticated, authenticated, authenticate }) => {
 						</NavLink>
 					</li>
 					{authenticated ? (
-						<NavLink to="/documents" activeClassName="active">
-							Write
-						</NavLink>
+						<li>
+							<NavLink to="/documents" activeClassName="active">
+								Write
+							</NavLink>
+						</li>
 					) : (
 						<li>
 							<NavLink to="/login" activeClassName="active">
@@ -38,9 +40,11 @@ const NavBar = ({ setAuthenticated, authenticated, authenticate }) => {
 						</li>
 					)}
 					{authenticated ? (
-						<NavLink to="/directories" activeClassName="active">
-							Directories
-						</NavLink>
+						<li>
+							<NavLink to="/directories" activeClassName="active">
+								Directories
+							</NavLink>
+						</li>
 					) : (
 						<li>
 							<NavLink to="/signup" activeClassName="active">
