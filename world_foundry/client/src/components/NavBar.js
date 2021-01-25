@@ -26,44 +26,47 @@ const NavBar = ({ setAuthenticated, authenticated, authenticate }) => {
 							Home
 						</NavLink>
 					</li>
-					{authenticated ? (
-						<li>
-							<NavLink to="/documents" activeClassName="active">
-								Write
-							</NavLink>
-						</li>
-					) : (
-						<li>
-							<NavLink to="/login" activeClassName="active">
-								Log In
-							</NavLink>
-						</li>
-					)}
-					{authenticated ? (
-						<li>
-							<NavLink to="/directories" activeClassName="active">
-								Directories
-							</NavLink>
-						</li>
-					) : (
-						<li>
-							<NavLink to="/signup" activeClassName="active">
-								Sign Up
-							</NavLink>
-						</li>
-					)}
-					<li>
-						<DemoButton
-							setAuthenticated={setAuthenticated}
-							authenticated={authenticated}
-						/>
-					</li>
-					<li>
-						<LogoutButton
-							setAuthenticated={setAuthenticated}
-							authenticated={authenticated}
-						/>
-					</li>
+					{authenticated
+						? (
+								<li>
+									<NavLink to="/documents" activeClassName="active">
+										Write
+									</NavLink>
+								</li>
+						  ) && (
+								<li>
+									<NavLink to="/directories" activeClassName="active">
+										Directories
+									</NavLink>
+								</li>
+						  ) && (
+								<li>
+									<LogoutButton
+										setAuthenticated={setAuthenticated}
+										authenticated={authenticated}
+									/>
+								</li>
+						  )
+						: (
+								<li>
+									<NavLink to="/login" activeClassName="active">
+										Log In
+									</NavLink>
+								</li>
+						  ) && (
+								<li>
+									<NavLink to="/signup" activeClassName="active">
+										Sign Up
+									</NavLink>
+								</li>
+						  ) && (
+								<li>
+									<DemoButton
+										setAuthenticated={setAuthenticated}
+										authenticated={authenticated}
+									/>
+								</li>
+						  )}
 				</ul>
 			</div>
 		</nav>

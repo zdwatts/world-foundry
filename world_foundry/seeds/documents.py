@@ -33,6 +33,12 @@ def seed_documents():
     became cursed. """,
                    directory_id=3)
 
+    mercy_manor = Document(title="Mercy Manor", body="""Mercy Manor, located
+    on the eastern border of Vilais, is the home of Lady Cateline of House
+    Chauvet. It also sits on the western edge of the Defiled Forest, whose
+    choking mists often hover over the manor and give it an eerie, ominous
+    appearance, much to the delight of its vampire denizens. """,
+                           directory_id=4)
 
     db.session.commit()
 
