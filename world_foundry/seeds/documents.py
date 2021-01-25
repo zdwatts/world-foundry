@@ -37,7 +37,18 @@ def seed_documents():
     on the eastern border of Vilais, is the home of Lady Cateline of House
     Chauvet. It also sits on the western edge of the Defiled Forest, whose
     choking mists often hover over the manor and give it an eerie, ominous
-    appearance, much to the delight of its vampire denizens. """,
+    appearance, much to the delight of its vampire denizens.""",
+                           directory_id=4)
+
+    esari_tower = Document(title="Esari Tower", body="""Esari Tower, around
+    which the Republic Capital City of Shel Esari was built, is a structure
+    surrounded in mystery. It's widely believed to have been constructed by
+    the elves, but as they are now extinct and most of their histories lost,
+    there is no way to verify that theory. Impossibly tall and with large
+    sections of its interior strangely inaccessible, Esari Tower mystifies
+    and fascinates all who come to visit. Its topmost levels also serve as
+    the apartments of House Kyngeston, ruling family of the Republic of
+    Bamora. """,
                            directory_id=4)
 
     db.session.commit()
