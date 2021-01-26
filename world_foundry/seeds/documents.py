@@ -18,7 +18,7 @@ def seed_documents():
     Azgarog. Blessed with demonic powers bestowed by drinking Azgarog's blood,
     he has served the demon king for a century and will continue to do so in
     perpetuity. Sivis's duties include assassination, destabilization of
-    kingdoms, and sowing of seed for potential future hosts. """,
+    kingdoms, and sowing of seed for potential future hosts.""",
                      directory_id=3)
 
     rob = Document(title="Rob", body="""Primary protagonist. Rob lived his
@@ -30,7 +30,7 @@ def seed_documents():
     memory of the incident, but several witnesses and his bloody knuckles
     tell a different story. After Shoatwick is raided by a rebel force,
     Rob undertakes a journey to find his birth mother and learn more
-    about where he came from, and how he became cursed. """,
+    about where he came from, and how he became cursed.""",
                    directory_id=3)
 
     mercy_manor = Document(title="Mercy Manor", body="""Mercy Manor, located
@@ -48,7 +48,7 @@ def seed_documents():
     sections of its interior strangely inaccessible, Esari Tower mystifies
     and fascinates all who come to visit. Its topmost levels also serve as
     the apartments of House Kyngeston, ruling family of the Republic of
-    Bamora. """,
+    Bamora.""",
                            directory_id=4)
 
     defiled_forest = Document(title="Defiled Forest", body="""The Defiled
@@ -57,7 +57,7 @@ def seed_documents():
     the substance which grants mages their abilities. Harvesting this liquid
     is an inherently dangerous task thanks to the haze, whose origins are
     unknown. It is said that some magic-related catastrophe occurred here
-    during the Great Elf Wars before their eventual extinction. """,
+    during the Great Elf Wars before their eventual extinction.""",
                               directory_id=4)
 
     the_sentinels = Document(title="The Sentinels", body="""The mercenary
@@ -71,8 +71,16 @@ def seed_documents():
     Their secret purpose, however, is to hunt down and destroy all hellspawn,
     including demons, vampires, and other monsters. The Sentinels believe that
     most of the injustices meted out upon the realm are committed by hellspawn,
-    and are committed to eradicating them from the mortal realm forever. """,
+    and are committed to eradicating them from the mortal realm forever.""",
                              directory_id=5)
+
+    mages_guild = Document(title="The Mages Guild", body="""Comprised of almost
+    exclusively old men addicted to elf-water, the Mages Guild is more of an
+    elite club of uber-wealthy nobles than any kind of organization devoted to
+    the arcane. With elf-water being so insanely expensive, and the Mages Guild
+    being its sole distributor, access to magic is really more determined by
+    the size of one's coinpurse than their devotion to study.""",
+                           directory_id=5)
 
     house_kyngeston = Document(title="House Kyngeston", body="""The Kyngestons
     came to power in Bamora after ousting House Skardvaar from the throne.
@@ -85,12 +93,48 @@ def seed_documents():
     This is of course a farce. The Republic of Bamora is only a republic in
     name. In truth, it is closer to an oligarchy, ruled by the Kyngeston
     family with a small margin more input from the noble houses than the
-    Skardvaars had.""",
+    Skardvaars had. Their colors are emerald and gold, and their sigil is
+    a hawk.""",
                                directory_id=6)
 
+    house_pelay = Document(title="House Pelay", body="""House Pelay has been
+    the Royal Family of Vilais since it was first organized into a single
+    kingdom in the First Epoch. It is currently ruled by King Cyprien IV
+    Pelay, who is actually a puppet of the demon king Azgarog. Their colors
+    are purple and silver, and their sigil is a serpent.""",
+                           directory_id=6)
 
+    republic_of_bamora = Document(title="The Republic of Bamora", body="""
+    Founded only sixty years ago by Andrew I Kyngeston, the Republic is the
+    youngest sovereignty in the known world. Its monopoly on elf-water has
+    given it a significant economic edge over its neighbors, which has in
+    turn led to a military hegemony that cannot be matched.""",
+                                  directory_id=7)
 
+    ghaskos = Document(title="Ghaskos", body="""The ancestral home of House
+    Skardvaar is frigid and unforgiving, and its inhabitants even more so.
+    After the fall of the Skardvaars, Ghaskos had no centralized leadership
+    to speak of, and is now divided into often fraught tribal territories.""",
+                       directory_id=7)
 
+    oshnul_islands = Document(title="Oshnul Islands", body="""Sailors avoid the
+    Oshnul Islands at all costs thanks to the brutality and aggression of their
+    inhabitants, the orcs. Rarely seen outside of their chain of islands--
+    except in Sercish fishing villages during raiding season--orcs consider all
+    who trespass on their islands to be enemies.""",
+                              directory_id=7)
+
+    db.session.add(azgarog)
+    db.session.add(sivis)
+    db.session.add(rob)
+    db.session.add(mercy_manor)
+    db.session.add(esari_tower)
+    db.session.add(defiled_forest)
+    db.session.add(the_sentinels)
+    db.session.add(house_kyngeston)
+    db.session.add(republic_of_bamora)
+    db.session.add(ghaskos)
+    db.session.add(oshnul_islands)
     db.session.commit()
 
 
