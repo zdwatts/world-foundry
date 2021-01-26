@@ -21,16 +21,16 @@ def seed_documents():
     kingdoms, and sowing of seed for potential future hosts. """,
                      directory_id=3)
 
-    rob = Document(title="Rob", body="""Rob lived his whole life hated by the
-    people of Shoatwick, the village where he grew up. Part of that hatred
-    comes from the fact that he is a bastard, and bastards are believed to
-    be natural sons of devils. This hatred is finally justified when, in a
-    blind, uncontrolled rage, Rob kills and maims several of his boyhood
-    bullies with his bare hands. He has no memory of the incident, but
-    several witnesses and his bloody knuckles tell a different story. After
-    Shoatwick is raided by a rebel force, Rob undertakes a journey to find
-    his birth mother and learn more about where he came from, and how he
-    became cursed. """,
+    rob = Document(title="Rob", body="""Primary protagonist. Rob lived his
+    whole life hated by the people of Shoatwick, the village where he grew
+    up. Part of that hatred comes from the fact that he is a bastard, and
+    bastards are believed to be natural sons of devils. This hatred is
+    finally justified when, in a blind, uncontrolled rage, Rob kills and
+    maims several of his boyhood bullies with his bare hands. He has no
+    memory of the incident, but several witnesses and his bloody knuckles
+    tell a different story. After Shoatwick is raided by a rebel force,
+    Rob undertakes a journey to find his birth mother and learn more
+    about where he came from, and how he became cursed. """,
                    directory_id=3)
 
     mercy_manor = Document(title="Mercy Manor", body="""Mercy Manor, located
