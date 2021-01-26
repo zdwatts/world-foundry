@@ -51,6 +51,31 @@ def seed_documents():
     Bamora. """,
                            directory_id=4)
 
+    defiled_forest = Document(title="Defiled Forest", body="""The Defiled
+    Forest is so named because of the clouds of toxic haze that populate
+    much of its deepmost interior. It is also home to the pools of elf-water,
+    the substance which grants mages their abilities. Harvesting this liquid
+    is an inherently dangerous task thanks to the haze, whose origins are
+    unknown. It is said that some magic-related catastrophe occurred here
+    during the Great Elf Wars before their eventual extinction. """,
+                              directory_id=4)
+
+    the_sentinels = Document(title="The Sentinels", body="""The mercenary
+    company that calls itself The Sentinels claims to be a higher order of
+    sellswords than its counterparts. While other mercenaries are motivated
+    only by coin, The Sentinels are the self-appointed protectors of justice,
+    peace, and goodness in all the realm. They have no allegiance to one crown
+    or court, and therefore are able to devote themselves wholly to the pursuit
+    of protecting the oppressed.
+
+    Their secret purpose, however, is to hunt down and destroy all hellspawn,
+    including demons, vampires, and other monsters. The Sentinels believe that
+    most of the injustices meted out upon the realm are committed by hellspawn,
+    and are committed to eradicating them from the mortal realm forever. """,
+                             directory_id=5)
+
+
+
     db.session.commit()
 
 
