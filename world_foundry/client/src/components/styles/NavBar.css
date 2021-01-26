@@ -4,6 +4,8 @@
 
 .navbar {
 	background-color: #b2cbe6;
+	display: flex;
+	justify-content: space-around;
 }
 
 .main-logo {
