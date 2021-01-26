@@ -14,13 +14,13 @@ def seed_directories():
     places = Directory(user_id=1, name="Places")
     organizations = Directory(user_id=1, name="Organizations")
     houses = Directory(user_id=1, name="Houses")
-    chapters = Directory(user_id=1, name="Chapters")
+    chapters = Directory(user_id=1, name="Countries and Kingdoms")
 
     characters.parent = bloodmoon_child
     places.parent = bloodmoon_child
     organizations.parent = bloodmoon_child
     houses.parent = bloodmoon_child
-    chapters.parent = bloodmoon_child
+    countries_and_kingdoms.parent = bloodmoon_child
 
     db.session.add(root)
     db.session.add(bloodmoon_child)
@@ -28,7 +28,7 @@ def seed_directories():
     db.session.add(places)
     db.session.add(organizations)
     db.session.add(houses)
-    db.session.add(chapters)
+    db.session.add(countries_and_kingdoms)
     db.session.commit()
 
 
