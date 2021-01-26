@@ -14,7 +14,7 @@ def seed_directories():
     places = Directory(user_id=1, name="Places")
     organizations = Directory(user_id=1, name="Organizations")
     houses = Directory(user_id=1, name="Houses")
-    chapters = Directory(user_id=1, name="Countries and Kingdoms")
+    countries_and_kingdoms = Directory(user_id=1, name="Countries and Kingdoms")
 
     characters.parent = bloodmoon_child
     places.parent = bloodmoon_child
