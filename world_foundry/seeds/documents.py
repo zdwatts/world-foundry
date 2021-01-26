@@ -74,6 +74,21 @@ def seed_documents():
     and are committed to eradicating them from the mortal realm forever. """,
                              directory_id=5)
 
+    house_kyngeston = Document(title="House Kyngeston", body="""The Kyngestons
+    came to power in Bamora after ousting House Skardvaar from the throne.
+    Rather than establishing another monarchy under the Kyngeston name, Andrew
+    Kyngeston, one of the Skardvaars' most trusted advisors, chose to found a
+    republic. With the help of Bamora's most powerful noble houses, they
+    created a government that creates an impression upon the people that
+    they actually have some form of control over what happens to them.
+
+    This is of course a farce. The Republic of Bamora is only a republic in
+    name. In truth, it is closer to an oligarchy, ruled by the Kyngeston
+    family with a small margin more input from the noble houses than the
+    Skardvaars had.""",
+                               directory_id=6)
+
+
 
 
     db.session.commit()
