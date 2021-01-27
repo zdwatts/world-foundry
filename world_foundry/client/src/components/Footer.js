@@ -9,7 +9,12 @@ const Footer = () => {
 			</div>
 			<ul>
 				<li>
-					<NavLink exact to="/" activeClassName="active" />
+					<NavLink exact to="/" activeClassName="active">
+						<i class="fas fa-home"></i>
+					</NavLink>
+					<a href="https://github.com/zdwatts/world-foundry">
+						<i class="fab fa-github"></i>
+					</a>
 				</li>
 			</ul>
 		</footer>

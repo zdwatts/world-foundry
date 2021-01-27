@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { authenticate } from "./services/auth";
+import { library } from "@fortawesome/fontawesome-svg-core";
 
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
@@ -10,6 +11,7 @@ import NavBar from "./components/NavBar";
 import DocumentEditor from "./components/DocumentEditor";
 import Directories from "./components/Directories";
 import Document from "./components/Document";
+import Footer from "./components/Footer";
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -62,6 +64,7 @@ function App() {
 					<Directories />
 				</ProtectedRoute>
 			</Switch>
+			<Footer />
 		</BrowserRouter>
 	);
 }
