@@ -1,0 +1,21 @@
+.footer {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	bottom: 0;
+	width: 100%;
+	border-bottom: 5px solid red;
+}
+
+.nav-link {
+	margin: 5px;
+}
+
+.nav-link:hover {
+	font-size: 15px;
+}
+
+li {
+	margin: 10px;
+}

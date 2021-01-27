@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "../components/styles/Footer.css";
 
 const Footer = () => {
 	return (
@@ -16,11 +17,14 @@ const Footer = () => {
 			</div>
 			<ul className="nav-links">
 				<li>
-					<NavLink exact to="/" activeClassName="active">
-						<i class="fas fa-home"></i>
+					<NavLink exact to="/" activeClassName="active" className="nav-link">
+						<i class="fas fa-home"></i> Home
 					</NavLink>
-					<a href="https://github.com/zdwatts/world-foundry">
-						<i class="fab fa-github footer-icon fa-md"></i>
+					<a
+						className="nav-link"
+						href="https://github.com/zdwatts/world-foundry"
+					>
+						<i class="fab fa-github footer-icon fa-md"></i> GitHub
 					</a>
 				</li>
 			</ul>
