@@ -5,7 +5,7 @@
 	justify-content: space-around;
 	bottom: 0;
 	width: 100%;
-	/* border-bottom: 5px solid red; */
+	border-bottom: 5px solid red;
 }
 
 .nav-link {
