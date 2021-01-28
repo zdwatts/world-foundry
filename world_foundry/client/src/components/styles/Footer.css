@@ -4,8 +4,8 @@
 	flex-direction: column;
 	justify-content: space-around;
 	bottom: 0;
+	position: absolute;
 	width: 100%;
-	border-bottom: 5px solid red;
 }
 
 .nav-link {
