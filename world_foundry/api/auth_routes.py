@@ -74,7 +74,7 @@ def sign_up():
         user_id = user.id
         root_directory = Directory(
             user_id=user_id,
-            name="Your Directories"
+            name="Your Worlds"
         )
         db.session.add(root_directory)
         db.session.commit()
