@@ -21,10 +21,15 @@
 
 .title-wrapper {
 	font-family: "Roboto", sans-serif;
+	color: #343434;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	margin-bottom: 5px;
+}
+
+.document-title {
+	color: #343434;
 }
 
 .buttons-wrapper {
