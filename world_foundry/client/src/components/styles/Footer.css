@@ -8,8 +8,13 @@
 	width: 100%;
 }
 
+.logo-text {
+	color: #343434;
+}
+
 .nav-link {
 	margin: 5px;
+	color: #343434;
 }
 
 .nav-link:hover {
