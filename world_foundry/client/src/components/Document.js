@@ -35,7 +35,7 @@ const Document = ({ authenticate }) => {
 			) : (
 				<div className="document-wrapper">
 					<div className="title-wrapper">
-						<h1>{document.title}</h1>
+						<h1 className="document-title">{document.title}</h1>
 					</div>
 					<div className="body-wrapper">
 						{document.body && parse(document.body)}
