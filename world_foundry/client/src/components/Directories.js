@@ -99,7 +99,7 @@ const Directories = () => {
 	return (
 		<div className="page-wrapper">
 			<div className="header-wrapper">
-				<h1>Directories</h1>
+				<h1 className="directories-header">Directories</h1>
 			</div>
 			<div>
 				<button
