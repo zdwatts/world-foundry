@@ -13,7 +13,7 @@
 
 .greeting-wrapper {
 	margin-right: 25%;
-	margin-left: 25%;
+	/* margin-left: 25%; */
 	/* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 	padding: 50px 40px;
 	border-radius: 5px;
@@ -32,8 +32,8 @@
 }
 
 .splash-image {
-	width: 600px;
-	height: 500px;
-	margin-right: 20px;
+	width: 700px;
+	height: 600px;
+	margin-right: 120px;
 	align-self: center;
 }
