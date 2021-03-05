@@ -2,10 +2,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto&display=swap");
 
-.content-wrapper {
+.document-content-wrapper {
 	height: 100%;
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 25px;
+	padding-bottom: 25px;
 	height: 100vh;
 }
 
