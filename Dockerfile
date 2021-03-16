@@ -1,7 +1,7 @@
 FROM node:12 AS build-stage
 
-WORKDIR /world_foundry/client
-COPY world_foundry/client/. .
+WORKDIR /app/client
+COPY app/client/. .
 
 ENV REACT_APP_BASE_URL=https://world-foundry.herokuapp.com/
 
