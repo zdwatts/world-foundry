@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { authenticate } from "../services/auth";
 import "./styles/LandingPage.css";
+import writer from "./images/writer.png";
 
 const LandingPage = ({ authenticated }) => {
 	const [currentUser, setCurrentUser] = useState("");
@@ -45,6 +46,7 @@ const LandingPage = ({ authenticated }) => {
 					</p>
 				)}
 			</div>
+			<img className="splash-image" src={writer} alt=""></img>
 		</div>
 	);
 };

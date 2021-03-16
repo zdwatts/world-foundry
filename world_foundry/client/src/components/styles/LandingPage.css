@@ -2,15 +2,19 @@
 
 .content-wrapper {
 	height: 1000px;
-	padding-top: 50px;
-	padding-bottom: 50px;
-	background-color: #faf5f0;
+	/* padding-top: 25px; */
+	/* padding-bottom: 25px; */
+	background-color: white;
+	display: flex;
+	/* flex-direction: column; */
+	justify-content: space-evenly;
+	align-items: center;
 }
 
 .greeting-wrapper {
 	margin-right: 25%;
-	margin-left: 25%;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	/* margin-left: 25%; */
+	/* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 	padding: 50px 40px;
 	border-radius: 5px;
 	height: auto;
@@ -25,4 +29,11 @@
 .greeting-body {
 	font-family: "Roboto", sans-serif;
 	color: #343434;
+}
+
+.splash-image {
+	width: 700px;
+	height: 600px;
+	margin-right: 120px;
+	align-self: center;
 }

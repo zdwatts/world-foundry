@@ -29,7 +29,7 @@ const Document = ({ authenticate }) => {
 	};
 
 	return (
-		<div className="content-wrapper">
+		<div className="document-content-wrapper">
 			{showEditor ? (
 				<UpdateDocument title={title} body={body} />
 			) : (
