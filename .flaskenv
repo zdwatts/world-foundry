@@ -1,2 +1,2 @@
-FLASK_APP=world_foundry
+FLASK_APP=app
 FLASK_ENV=development

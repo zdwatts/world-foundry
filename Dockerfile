@@ -18,7 +18,7 @@ EXPOSE 5000
 
 WORKDIR /var/www
 COPY . .
-COPY --from=build-stage /world_foundry/client/build/* app/static/
+COPY --from=build-stage /app/client/build/* app/static/
 
 RUN pip install -r requirements.txt
 RUN pip install psycopg2
