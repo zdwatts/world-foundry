@@ -1,4 +1,4 @@
-from world_foundry.models import db, Document
+from app.models import db, Document
 
 
 def seed_documents():
