@@ -35,8 +35,8 @@ const LandingPage = ({ authenticated }) => {
 					</p>
 				) : (
 					<p className="greeting-body">
-						Welcome to World Foundry. This is a place for those who wish to take
-						their worlds to the next level. It is here that you will cultivate
+						Welcome to World Foundry. This is a place for writers who wish to take
+						their worlds to the next level. Here you will cultivate
 						real, living people, things and places from nothing more than the
 						written word. World Foundry will help you turn your entirely
 						imagined creations into something indistinguishable from reality for
