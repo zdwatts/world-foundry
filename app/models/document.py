@@ -1,5 +1,11 @@
 from .db import db
 
+references = db.Table(
+    "references",
+    db.Column("referenced_id", db.Integer, db.ForeignKey("documents.id")),
+    db.Column("reference_id", db.Integer, db.ForeignKey("documents.id"))
+)
+
 
 class Document(db.Model):
     __tablename__ = "documents"
