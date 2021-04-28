@@ -65,6 +65,8 @@ def seed_documents():
     during the Great Elf Wars before their eventual extinction.""",
                               directory_id=4)
 
+    defiled_forest.references.append(mercy_manor)
+
     the_sentinels = Document(title="The Sentinels", body="""The mercenary
     company that calls itself The Sentinels claims to be a higher order of
     sellswords than its counterparts. While other mercenaries are motivated
@@ -109,12 +111,18 @@ def seed_documents():
     are purple and silver, and their sigil is a serpent.""",
                            directory_id=6)
 
+    house_pelay.references.append(azgarog)
+
     republic_of_bamora = Document(title="The Republic of Bamora", body="""
     Founded only sixty years ago by Andrew I Kyngeston, the Republic is the
     youngest sovereignty in the known world. Its monopoly on elf-water has
     given it a significant economic edge over its neighbors, which has in
     turn led to a military hegemony that cannot be matched.""",
                                   directory_id=7)
+
+    esari_tower.references.append(house_kyngeston)
+    esari_tower.references.append(republic_of_bamora)
+    house_kyngeston.references.append(republic_of_bamora)
 
     ghaskos = Document(title="Ghaskos", body="""The ancestral home of House
     Skardvaar is frigid and unforgiving, and its inhabitants even more so.
