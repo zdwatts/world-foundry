@@ -36,6 +36,8 @@ def seed_documents():
     about where he came from, and how he became cursed.""",
                    directory_id=3)
 
+    azgarog.references.append(rob)
+
     mercy_manor = Document(title="Mercy Manor", body="""Mercy Manor, located
     on the eastern border of Vilais, is the home of Lady Cateline of House
     Chauvet. It also sits on the western edge of the Defiled Forest, whose
