@@ -8,8 +8,14 @@ document_routes = Blueprint("documents", __name__)
 @document_routes.route("/")
 def documents():
     documents = Document.query.order_by(Document.id.desc()).all()
-    print("DOCUMENTS:", [document.to_dict() for document in documents])
     return {"documents": [document.to_dict() for document in documents]}
+
+
+@document_routes.route("/references")
+def references():
+    references = Document.query.order_by(Document.references).all()
+    print("THIS WORKED")
+    return {"references": [reference.to_dict() for reference in references]}
 
 
 @document_routes.route("", methods=["POST"])
