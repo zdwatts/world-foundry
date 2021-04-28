@@ -21,6 +21,9 @@ def seed_documents():
     kingdoms, and sowing of seed for potential future hosts.""",
                      directory_id=3)
 
+    sivis.references.append(azgarog)
+    azgarog.references.append(sivis)
+
     rob = Document(title="Rob", body="""Primary protagonist. Rob lived his
     whole life hated by the people of Shoatwick, the village where he grew
     up. Part of that hatred comes from the fact that he is a bastard, and
@@ -32,6 +35,8 @@ def seed_documents():
     Rob undertakes a journey to find his birth mother and learn more
     about where he came from, and how he became cursed.""",
                    directory_id=3)
+
+    azgarog.references.append(rob)
 
     mercy_manor = Document(title="Mercy Manor", body="""Mercy Manor, located
     on the eastern border of Vilais, is the home of Lady Cateline of House
@@ -59,6 +64,8 @@ def seed_documents():
     unknown. It is said that some magic-related catastrophe occurred here
     during the Great Elf Wars before their eventual extinction.""",
                               directory_id=4)
+
+    defiled_forest.references.append(mercy_manor)
 
     the_sentinels = Document(title="The Sentinels", body="""The mercenary
     company that calls itself The Sentinels claims to be a higher order of
@@ -104,12 +111,18 @@ def seed_documents():
     are purple and silver, and their sigil is a serpent.""",
                            directory_id=6)
 
+    house_pelay.references.append(azgarog)
+
     republic_of_bamora = Document(title="The Republic of Bamora", body="""
     Founded only sixty years ago by Andrew I Kyngeston, the Republic is the
     youngest sovereignty in the known world. Its monopoly on elf-water has
     given it a significant economic edge over its neighbors, which has in
     turn led to a military hegemony that cannot be matched.""",
                                   directory_id=7)
+
+    esari_tower.references.append(house_kyngeston)
+    esari_tower.references.append(republic_of_bamora)
+    house_kyngeston.references.append(republic_of_bamora)
 
     ghaskos = Document(title="Ghaskos", body="""The ancestral home of House
     Skardvaar is frigid and unforgiving, and its inhabitants even more so.
