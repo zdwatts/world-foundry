@@ -21,6 +21,9 @@ def seed_documents():
     kingdoms, and sowing of seed for potential future hosts.""",
                      directory_id=3)
 
+    sivis.references.append(azgarog)
+    azgarog.references.append(sivis)
+
     rob = Document(title="Rob", body="""Primary protagonist. Rob lived his
     whole life hated by the people of Shoatwick, the village where he grew
     up. Part of that hatred comes from the fact that he is a bastard, and

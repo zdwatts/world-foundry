@@ -1,7 +1,7 @@
 from .db import db
 
-reference_table = db.Table(
-    "reference_table",
+referencing = db.Table(
+    "referencing",
     db.Column("referenced_id", db.Integer, db.ForeignKey("documents.id")),
     db.Column("reference_id", db.Integer, db.ForeignKey("documents.id"))
 )
@@ -18,10 +18,10 @@ class Document(db.Model):
 
     references = db.relationship(
         "Document",
-        secondary=reference_table,
-        primaryjoin=(reference_table.c.referenced_id == id),
-        secondaryjoin=(reference_table.c.reference_id == id),
-        backref=db.backref("reference_table", lazy="dynamic"),
+        secondary=referencing,
+        primaryjoin=(referencing.c.referenced_id == id),
+        secondaryjoin=(referencing.c.reference_id == id),
+        backref=db.backref("referencing", lazy="dynamic"),
         lazy="dynamic"
     )
 
