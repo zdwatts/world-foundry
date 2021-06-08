@@ -15,8 +15,9 @@
 }
 
 .page-wrapper {
-	margin: 0;
-	height: 100vh;
+	/* margin: 0; */
+	/* height: 100vh; */
+	width: 25%;
 }
 
 .inputs-wrapper {
