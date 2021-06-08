@@ -11,19 +11,26 @@
 	align-items: center;
 }
 
-.greeting-wrapper {
-	margin-right: 25%;
+.page-wrapper {
+	/* margin-right: 25%; */
+	display: flex;
 	/* margin-left: 25%; */
 	/* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-	padding: 50px 40px;
+	padding: 30px 25px;
 	border-radius: 5px;
 	height: auto;
 	background-color: white;
+	justify-content: space-evenly;
 }
 
 .greeting {
 	font-family: "Roboto", sans-serif;
 	color: #343434;
+}
+
+.greeting-wrapper {
+	display: flex;
+	flex-direction: column;
 }
 
 .greeting-body {
@@ -34,6 +41,4 @@
 .splash-image {
 	width: 700px;
 	height: 600px;
-	margin-right: 120px;
-	align-self: center;
 }
