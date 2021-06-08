@@ -29,16 +29,6 @@ const NavBar = ({ setAuthenticated, authenticated, authenticate }) => {
 					{authenticated ? (
 						<>
 							<li>
-								<NavLink to="/documents" activeClassName="active">
-									Write
-								</NavLink>
-							</li>
-							<li>
-								<NavLink to="/directories" activeClassName="active">
-									Directories
-								</NavLink>
-							</li>
-							<li>
 								<LogoutButton
 									setAuthenticated={setAuthenticated}
 									authenticated={authenticated}
