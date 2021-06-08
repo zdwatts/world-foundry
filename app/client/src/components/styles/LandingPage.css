@@ -14,6 +14,7 @@
 	height: auto;
 	background-color: white;
 	justify-content: space-evenly;
+	align-items: center;
 }
 
 .greeting {
@@ -24,6 +25,8 @@
 .greeting-wrapper {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+	padding: 100px;
 }
 
 .greeting-body {
@@ -34,4 +37,10 @@
 .splash-image {
 	width: 700px;
 	height: 600px;
+}
+
+@media only screen and (max-width: 1200px) {
+	.home-wrapper {
+		height: auto;
+	}
 }
