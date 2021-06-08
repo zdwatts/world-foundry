@@ -29,12 +29,12 @@ const LandingPage = ({ authenticated }) => {
 	return (
 		<>
 			{authenticated ? (
-				<div className="content-wrapper">
+				<div className="home-wrapper">
 					<DocumentEditor authenticate={authenticate} />
 					<Directories />
 				</div>
 			) : (
-				<div className="page-wrapper">
+				<div className="landing-wrapper">
 					<div className="greeting-wrapper">
 						<h1 className="greeting"> Greetings, {greeting()}.</h1>
 						<p className="greeting-body">

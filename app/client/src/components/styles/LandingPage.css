@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto&display=swap");
 
-.content-wrapper {
+.home-wrapper {
 	height: 1000px;
 	/* padding-top: 25px; */
 	/* padding-bottom: 25px; */
@@ -11,7 +11,7 @@
 	align-items: center;
 }
 
-.page-wrapper {
+.landing-wrapper {
 	/* margin-right: 25%; */
 	display: flex;
 	/* margin-left: 25%; */
