@@ -42,9 +42,12 @@ const UpdateDocument = ({ title, body }) => {
 								onChange={handleTitleChange}
 							/>
 						</div>
-							<Editor
+						<Editor
 							value={newBody}
 							apiKey={apiKey}
+							init={{
+								height: 300,
+							}}
 							plugins="wordcount wordcount fullscreen image preview"
 							onEditorChange={handleEditorChange}
 						/>
