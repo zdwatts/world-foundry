@@ -10,13 +10,15 @@
 	padding: 50px;
 }
 
-.form-wrapper {
+.box-wrapper {
 	/* margin-right: 25%; */
 	/* margin-left: 25%; */
+	margin-bottom: 50px;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	padding: 50px 40px;
 	border-radius: 5px;
 	height: auto;
+	width: 50%;
 }
 
 .form-title {
@@ -65,7 +67,7 @@
 }
 
 @media only screen and (min-width: 1200px) {
-	.form-wrapper {
+	.box-wrapper {
 		margin-right: 15%;
 		margin-left: 15%;
 	}

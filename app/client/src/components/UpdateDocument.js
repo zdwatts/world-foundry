@@ -32,7 +32,7 @@ const UpdateDocument = ({ title, body }) => {
 			{showEditor ? (
 				<Document />
 			) : (
-				<div className="form-wrapper">
+				<div className="edit-form-wrapper">
 					<form onSubmit={handleEdit}>
 						<div className="title-wrapper">
 							<label>New Title</label>
@@ -42,7 +42,7 @@ const UpdateDocument = ({ title, body }) => {
 								onChange={handleTitleChange}
 							/>
 						</div>
-						<Editor
+							<Editor
 							value={newBody}
 							apiKey={apiKey}
 							plugins="wordcount wordcount fullscreen image preview"
