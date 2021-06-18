@@ -1,7 +1,7 @@
 FROM node:12 AS build-stage
 
-WORKDIR /app/client
-COPY app/client/. .
+WORKDIR /client
+COPY client/. .
 
 ENV REACT_APP_BASE_URL=https://world-foundry.herokuapp.com/
 
@@ -18,7 +18,7 @@ EXPOSE 5000
 
 WORKDIR /var/www
 COPY . .
-COPY --from=build-stage /app/client/build/* app/static/
+COPY --from=build-stage /client/build/* app/static/
 
 RUN pip install -r requirements.txt
 RUN pip install psycopg2
