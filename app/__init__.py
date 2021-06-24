@@ -13,8 +13,7 @@ from .api.directory_routes import directory_routes
 from .api.document_routes import document_routes
 
 
-app = Flask(__name__, static_folder="client/build/static",
-            static_url_path="/static")
+app = Flask(__name__)
 
 
 login = LoginManager(app)
@@ -57,5 +56,5 @@ def inject_csrf_token(response):
 def react_root(path):
     print("path", path)
     if path == "favicon.ico":
-        return send_from_directory("client/build", "favicon.ico")
-    return send_from_directory("client/build", "index.html")
+        return send_from_directory("static", "favicon.ico")
+    return send_from_directory("static", "index.html")

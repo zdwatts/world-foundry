@@ -3,9 +3,9 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import TreeView from "@material-ui/lab/TreeView";
+import TreeItem from "@material-ui/lab/TreeItem";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import TreeItem from "@material-ui/lab/TreeItem";
 import "./styles/Directories.css";
 
 const Directories = () => {
