@@ -13,8 +13,7 @@ from .api.directory_routes import directory_routes
 from .api.document_routes import document_routes
 
 
-app = Flask(__name__, static_folder="client/build/static",
-            static_url_path="/static")
+app = Flask(__name__)
 
 
 login = LoginManager(app)
