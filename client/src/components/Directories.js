@@ -79,7 +79,7 @@ const Directories = () => {
 	// 	/>
 
 	const renderTree = (root) => (
-		<TreeItem key={root.id} nodeId={root.id} label={root.name}>
+		<TreeItem key={root.id} nodeId={root.name} label={root.name}>
 			{Array.isArray(root.children)
 				? root.children.map((directory) => renderTree(directory))
 				: null}
@@ -120,7 +120,7 @@ const Directories = () => {
 								required
 							>
 								{directories.map((directory) => (
-									<option value={directory.id}>{directory.name}</option>
+									<option key={directory.id} value={directory.id}>{directory.name}</option>
 								))}
 							</select>
 
