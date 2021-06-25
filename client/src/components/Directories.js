@@ -59,7 +59,11 @@ const Directories = () => {
 
 		if (response.ok) {
 			history.push(`/directories/`);
+			const data = await axios.get("/api/directories/all");
+			const newDirectories = data.data.directories
+			setDirectories(newDirectories)
 		}
+
 	};
 
 	const useStyles = makeStyles({
