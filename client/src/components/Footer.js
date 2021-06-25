@@ -18,13 +18,13 @@ const Footer = () => {
 			<ul className="nav-links">
 				<li>
 					<NavLink exact to="/" activeClassName="active" className="nav-link">
-						<i class="fas fa-home"></i> Home
+						<i className="fas fa-home"></i> Home
 					</NavLink>
 					<a
 						className="nav-link"
 						href="https://github.com/zdwatts/world-foundry"
 					>
-						<i class="fab fa-github footer-icon fa-md"></i> GitHub
+						<i className="fab fa-github footer-icon fa-md"></i> GitHub
 					</a>
 				</li>
 			</ul>
