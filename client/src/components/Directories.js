@@ -52,17 +52,19 @@ const Directories = () => {
 	const addDirectory = async (e) => {
 		e.preventDefault();
 
-		const response = await axios.post("/api/directories/", {
+		await axios.post("/api/directories/", {
 			"parent-directory": parentDirectory,
 			"directory-name": directoryName,
 		});
 
-		if (response.ok) {
-			history.push(`/directories/`);
-			const data = await axios.get("/api/directories/all");
-			const newDirectories = data.data.directories
+
+		const data = await axios.get("/api/directories/all");
+		const newDirectories = data.data.directories
+		await setTimeout(function () {
+			console.log("waited")
 			setDirectories(newDirectories)
-		}
+		}, 1000)
+
 
 	};
 
@@ -99,6 +101,8 @@ const Directories = () => {
 				))}
 		</TreeItem>
 	);
+
+	console.log(root)
 
 	return (
 		<div className="page-wrapper">
