@@ -9,7 +9,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import "./styles/Directories.css";
 
 const Directories = () => {
-	const [root, setRoot] = useState([]);
+	const [root, setRoot] = useState({});
 	const [showForm, setShowForm] = useState(false);
 	const [directories, setDirectories] = useState([]);
 	const [parentDirectory, setParentDirectory] = useState("");
@@ -57,14 +57,9 @@ const Directories = () => {
 			"directory-name": directoryName,
 		});
 
-
-		const data = await axios.get("/api/directories/all");
-		const newDirectories = data.data.directories
-		await setTimeout(function () {
-			console.log("waited")
-			setDirectories(newDirectories)
-		}, 1000)
-
+		const res = await axios.get("/api/directories/");
+		const newRoot = res.data.root;
+		setRoot(newRoot)
 
 	};
 
@@ -100,7 +95,7 @@ const Directories = () => {
 					/>
 				))}
 		</TreeItem>
-	);
+		);
 
 	console.log(root)
 
