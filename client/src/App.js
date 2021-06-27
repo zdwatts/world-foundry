@@ -8,7 +8,6 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import LandingPage from "./components/LandingPage";
 import NavBar from "./components/NavBar";
 import DocumentEditor from "./components/DocumentEditor";
-import Directories from "./components/Directories";
 import Document from "./components/Document";
 import Footer from "./components/Footer";
 
@@ -58,9 +57,6 @@ function App() {
 				</ProtectedRoute>
 				<ProtectedRoute path="/documents/:id" authenticated={authenticated}>
 					<Document authenticate={authenticate} />
-				</ProtectedRoute>
-				<ProtectedRoute exact path="/directories" authenticated={authenticated}>
-					<Directories />
 				</ProtectedRoute>
 			</Switch>
 			<Footer />

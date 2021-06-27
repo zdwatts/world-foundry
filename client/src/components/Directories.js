@@ -9,7 +9,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import "./styles/Directories.css";
 
 const Directories = () => {
-	const [root, setRoot] = useState([]);
+	const [root, setRoot] = useState({});
 	const [showForm, setShowForm] = useState(false);
 	const [directories, setDirectories] = useState([]);
 	const [parentDirectory, setParentDirectory] = useState("");
@@ -52,14 +52,15 @@ const Directories = () => {
 	const addDirectory = async (e) => {
 		e.preventDefault();
 
-		const response = await axios.post("/api/directories/", {
+		await axios.post("/api/directories/", {
 			"parent-directory": parentDirectory,
 			"directory-name": directoryName,
 		});
 
-		if (response.ok) {
-			history.push(`/directories/`);
-		}
+		const res = await axios.get("/api/directories/");
+		const newRoot = res.data.root;
+		setRoot(newRoot)
+
 	};
 
 	const useStyles = makeStyles({
@@ -79,7 +80,7 @@ const Directories = () => {
 	// 	/>
 
 	const renderTree = (root) => (
-		<TreeItem key={root.id} nodeId={root.id} label={root.name}>
+		<TreeItem key={root.id} nodeId={root.name} label={root.name}>
 			{Array.isArray(root.children)
 				? root.children.map((directory) => renderTree(directory))
 				: null}
@@ -94,7 +95,9 @@ const Directories = () => {
 					/>
 				))}
 		</TreeItem>
-	);
+		);
+
+	console.log(root)
 
 	return (
 		<div className="page-wrapper">
@@ -120,7 +123,7 @@ const Directories = () => {
 								required
 							>
 								{directories.map((directory) => (
-									<option value={directory.id}>{directory.name}</option>
+									<option key={directory.id} value={directory.id}>{directory.name}</option>
 								))}
 							</select>
 
