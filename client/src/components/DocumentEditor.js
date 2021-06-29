@@ -36,7 +36,7 @@ const DocumentEditor = ({ authenticate }) => {
 	const addDocument = async (e) => {
 		e.preventDefault();
 
-		const response = await fetch("/api/documents", {
+		const response = await fetch("/api/documents/", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
