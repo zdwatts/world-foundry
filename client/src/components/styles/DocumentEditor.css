@@ -66,9 +66,11 @@
 	cursor: pointer;
 }
 
-@media only screen and (min-width: 1200px) {
+@media screen and (max-width: 1600px) {
 	.box-wrapper {
-		margin-right: 15%;
-		margin-left: 15%;
+		/* margin-right: 15%;
+		margin-left: 15%; */
+		margin-bottom: none;
+
 	}
 }
