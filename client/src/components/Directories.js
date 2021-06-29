@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { useDocuments } from "../context/DocumentsContext"
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import TreeView from "@material-ui/lab/TreeView";
@@ -14,8 +15,10 @@ const Directories = () => {
 	const [directories, setDirectories] = useState([]);
 	const [parentDirectory, setParentDirectory] = useState("");
 	const [directoryName, setDirectoryName] = useState("");
-	const [documents, setDocuments] = useState([]);
+
 	const history = useHistory();
+
+	const documents = useDocuments()
 
 	useEffect(() => {
 		(async () => {
@@ -31,13 +34,6 @@ const Directories = () => {
 			const directoriesArray = res.data.directories;
 			setDirectories(directoriesArray);
 			setParentDirectory(directoriesArray[0].id);
-		})();
-	}, []);
-
-	useEffect(() => {
-		(async () => {
-			const res = await axios.get("/api/documents/");
-			setDocuments(res.data.documents);
 		})();
 	}, []);
 

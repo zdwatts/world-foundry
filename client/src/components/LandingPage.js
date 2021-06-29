@@ -4,9 +4,11 @@ import Directories from "./Directories";
 import DocumentEditor from "./DocumentEditor"
 import "./styles/LandingPage.css";
 import writer from "./images/writer.png";
+import DocumentsProvider from "../context/DocumentsContext"
 
 const LandingPage = ({ authenticated }) => {
 	const [currentUser, setCurrentUser] = useState("");
+
 
 	useEffect(() => {
 		(async () => {
@@ -15,6 +17,7 @@ const LandingPage = ({ authenticated }) => {
 			setCurrentUser(user);
 		})();
 	});
+
 
 	const greeting = () => {
 		let greeting;
@@ -30,8 +33,10 @@ const LandingPage = ({ authenticated }) => {
 		<>
 			{authenticated ? (
 				<div className="home-wrapper">
-					<DocumentEditor authenticate={authenticate} />
-					<Directories />
+					<DocumentsProvider>
+						<DocumentEditor authenticate={authenticate} />
+						<Directories />
+					</DocumentsProvider>
 				</div>
 			) : (
 				<div className="landing-wrapper">
@@ -48,7 +53,7 @@ const LandingPage = ({ authenticated }) => {
 							and get started.
 						</p>
 					</div>
-						<img className="splash-image" src={writer} alt=""></img>
+					<img className="splash-image" src={writer} alt=""></img>
 				</div>
 			)}
 		</>
