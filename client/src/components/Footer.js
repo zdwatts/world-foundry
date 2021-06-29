@@ -22,6 +22,8 @@ const Footer = () => {
 					</NavLink>
 					<a
 						className="nav-link"
+						target="_blank"
+						rel="noreferrer"
 						href="https://github.com/zdwatts/world-foundry"
 					>
 						<i className="fab fa-github footer-icon fa-md"></i> GitHub

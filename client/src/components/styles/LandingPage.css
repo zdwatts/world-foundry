@@ -39,8 +39,28 @@
 	height: 600px;
 }
 
-@media only screen and (max-width: 1200px) {
+@media screen and (max-width: 1600px) {
+	.home-wrapper {
+		height: 850px;
+	}
+
+	.splash-image {
+		width: 525px;
+		height: 450px;
+	}
+}
+
+@media screen and (max-width: 750px) {
 	.home-wrapper {
 		height: auto;
+	}
+
+	.splash-image {
+		width: 350px;
+		height: 300px;
+	}
+
+	.greeting-wrapper {
+		padding: 50px;
 	}
 }
