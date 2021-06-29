@@ -49,3 +49,18 @@
 		height: 450px;
 	}
 }
+
+@media screen and (max-width: 750px) {
+	.home-wrapper {
+		height: auto;
+	}
+
+	.splash-image {
+		width: 350px;
+		height: 300px;
+	}
+
+	.greeting-wrapper {
+		padding: 50px;
+	}
+}
