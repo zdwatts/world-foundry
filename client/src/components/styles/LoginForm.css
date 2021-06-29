@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto&display=swap");
 
 .login-form-wrapper {
-	width: 100vw;
+	/* width: 100vw; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -74,4 +74,18 @@
 
 .cta {
 	color: #343434;
+}
+
+@media screen and (max-width: 1600px) {
+	.login-form-wrapper {
+		height: 500px;
+		position: relative;
+	}
+
+	.login-form {
+		margin-top: 5px;
+		margin-bottom: 10px;
+		height: 400px;
+		position: relative;
+	}
 }
