@@ -76,3 +76,17 @@
 .cta {
 	color: #343434;
 }
+
+@media screen and (max-width: 1600px) {
+	.signup-form-wrapper {
+		height: 550px;
+		position: relative;
+	}
+
+	.signup-form {
+		margin-top: 5px;
+		margin-bottom: 10px;
+		height: 450px;
+		position: relative;
+	}
+}
