@@ -53,6 +53,7 @@ const DocumentEditor = ({ authenticate }) => {
 			const documentId = data.id;
 			history.push(`/documents/${documentId}`);
 		}
+
 	};
 
 	return (
