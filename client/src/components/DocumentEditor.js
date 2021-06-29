@@ -48,9 +48,11 @@ const DocumentEditor = ({ authenticate }) => {
 			}),
 		});
 
+		if (response.ok) {
 			const data = await response.json();
 			const documentId = data.id;
 			history.push(`/documents/${documentId}`);
+		}
 
 	};
 
